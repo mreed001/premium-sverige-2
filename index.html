@@ -57,7 +57,7 @@
             font-weight: 600;
         }
 
-        /* Buttons */
+        /* Buttons & Pulse Animation */
         .btn {
             display: inline-block; width: 100%; padding: 15px 20px; border-radius: 8px;
             font-weight: 600; text-align: center; cursor: pointer; transition: all 0.3s ease;
@@ -67,6 +67,15 @@
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
         .btn-outline { background: #1a1a1a; color: #fff; border: 1px solid #3f3f46; }
         .btn-outline:hover { background: #27272a; }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(59, 130, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        }
+        .btn-pulse {
+            animation: pulse 2s infinite;
+        }
 
         /* Hero Section (Sora dyal kora w tiran) */
         .hero {
@@ -172,7 +181,8 @@
             
             <div class="hero-buttons">
                 <!-- 👇 BDEL NMRA HNA 👇 -->
-                <a href="https://wa.me/DIR_NMRA_HNA?text=Hello!%20I%20am%20interested%20in%20your%20digital%20setup." target="_blank" onclick="fbq('track', 'InitiateCheckout');" class="btn btn-primary">
+                <!-- Zdt lik hna class "btn-pulse" bach dir animation -->
+                <a href="https://wa.me/DIR_NMRA_HNA?text=Hello!%20I%20am%20interested%20in%20your%20digital%20setup." target="_blank" onclick="fbq('track', 'InitiateCheckout');" class="btn btn-primary btn-pulse">
                     <i class="fa-brands fa-whatsapp"></i> Get Your Access Now
                 </a>
                 <a href="#pricing" class="btn btn-outline">See Pricing</a>
@@ -350,7 +360,8 @@
             </a>
         </div>
         
-        <p class="mt-4" style="font-size: 0.9rem; color: #52525b;">Secure Digital Services. © 2026 Premium Entertainment.</p>
+        <!-- Zdt lik d-domain f l-footer bach yban pro -->
+        <p class="mt-4" style="font-size: 0.9rem; color: #52525b;">Secure Digital Services. © 2026 <a href="https://www.hm-digital.xyz" style="color: #93c5fd; text-decoration: none; font-weight: 600;">HM-Digital.xyz</a>. All rights reserved.</p>
     </footer>
 
 </body>
