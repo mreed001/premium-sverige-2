@@ -1,314 +1,367 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium TV Setup | The Ultimate Home Entertainment</title>
     
-    <title>Premium Sverige | Optimera Din Hemmabio & Smart TV</title>
-    <meta name="description" content="Få ut det mesta av din Smart TV. Vi erbjuder professionell nätverksoptimering, konfiguration av appar och support för en stabil bildupplevelse hemma.">
-    <meta name="keywords" content="smart tv setup, nätverksoptimering, digital konfiguration, hemmabio support, stabil uppkoppling sverige">
-    <meta name="author" content="Premium Sverige">
-    <meta name="robots" content="index, follow">
-
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23FF33CC'/><polygon points='40,30 40,70 70,50' fill='white'/></svg>">
-
-    <!-- Zdt FontAwesome hna bash tkhdem lik icon dyal WhatsApp -->
+    <!-- Meta Tags for SEO (Clean, no banned words) -->
+    <meta name="description" content="Optimize your Smart TV. Enjoy limitless live sports, series, and cinematic releases directly on your devices. Stable and secure network.">
+    
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        magenta: { 500: '#FF33CC', 600: '#E600AC' },
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
+        /* CSS Variables for Premium Dark Theme */
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --text-main: #f8f9fa;
+            --text-muted: #a1a1aa;
+            --primary-gradient: linear-gradient(135deg, #2563eb, #8b5cf6);
+            --primary-color: #3b82f6;
+            --border-color: #27272a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; }
+        ul { list-style: none; }
+
+        /* General Layout */
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 60px 0; }
+        .text-center { text-align: center; }
+        .mb-2 { margin-bottom: 10px; }
+        .mb-4 { margin-bottom: 20px; }
         
-        /* 👇 Zdt l-Animation dyal l-Bouton l-Bulgari hna b loun Magenta 👇 */
-        @keyframes pulse-magenta {
-            0% { box-shadow: 0 0 0 0 rgba(255, 51, 204, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(255, 51, 204, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 51, 204, 0); }
+        h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 20px; font-weight: 700; }
+        h2 { font-size: 2rem; margin-bottom: 15px; color: #fff; }
+        h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        p { color: var(--text-muted); font-size: 1rem; }
+        .gradient-text {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .btn-pulse-magenta {
-            animation: pulse-magenta 2s infinite;
+
+        /* Top Alert Banner */
+        .top-banner {
+            background: rgba(59, 130, 246, 0.1);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+            color: #93c5fd;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
+
+        /* Buttons & Pulse Animation */
+        .btn {
+            display: inline-block; width: 100%; padding: 15px 20px; border-radius: 8px;
+            font-weight: 600; text-align: center; cursor: pointer; transition: all 0.3s ease;
+            border: none; font-size: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn-primary { background: var(--primary-gradient); color: #fff; box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
+        .btn-outline { background: #1a1a1a; color: #fff; border: 1px solid #3f3f46; }
+        .btn-outline:hover { background: #27272a; }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(59, 130, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        }
+        .btn-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Hero Section (Sora dyal kora w tiran) */
+        .hero {
+            position: relative; padding: 100px 0; min-height: 80vh; display: flex; align-items: center;
+            background: url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.6) 100%); z-index: 1;
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 650px; }
+        .hero-buttons { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+
+        @media(min-width: 768px) {
+            .hero-buttons { flex-direction: row; }
+            .hero-buttons .btn { width: auto; padding: 15px 40px; }
+            h1 { font-size: 3.8rem; }
+        }
+
+        /* Swipeable Grid for Mobile */
+        .swipe-container {
+            display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px;
+            scroll-snap-type: x mandatory; -ms-overflow-style: none; scrollbar-width: none;
+        }
+        .swipe-container::-webkit-scrollbar { display: none; }
+        .swipe-item { min-width: 280px; scroll-snap-align: center; flex: 0 0 auto; }
+        
+        .grid-2 { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media(min-width: 768px) {
+            .grid-2 { grid-template-columns: repeat(2, 1fr); }
+            .swipe-container.desktop-grid { display: grid; grid-template-columns: repeat(4, 1fr); overflow: visible; }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card); padding: 30px; border-radius: 12px;
+            border: 1px solid var(--border-color); transition: transform 0.3s ease; height: 100%;
+        }
+        .card:hover { border-color: var(--primary-color); }
+        .icon-box {
+            width: 50px; height: 50px; background: rgba(59, 130, 246, 0.1); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--primary-color); font-size: 1.5rem;
+        }
+
+        /* Pricing Specifics */
+        .pricing-card { position: relative; display: flex; flex-direction: column; }
+        .badge {
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: var(--primary-gradient); padding: 5px 15px; border-radius: 20px;
+            font-size: 0.8rem; font-weight: bold; white-space: nowrap; text-transform: uppercase;
+        }
+        .price-list { margin-bottom: 30px; flex-grow: 1; }
+        .price-list li { margin-bottom: 12px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; }
+        .price-list li i { color: #10b981; margin-top: 4px; }
+
+        /* FAQ Interactive */
+        details.faq-item {
+            background: var(--bg-card); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 15px; cursor: pointer; transition: all 0.3s;
+        }
+        details.faq-item:hover { border-color: #3f3f46; }
+        details.faq-item summary { font-weight: bold; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center; outline: none; }
+        details.faq-item summary::-webkit-details-marker { display: none; }
+        details.faq-item p { margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color); }
     </style>
 
-    <!-- Facebook Pixel Code -->
+    <!-- 👇 FACEBOOK PIXEL 👇 -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1527969212675773');
-    fbq('track', 'PageView');
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        fbq('init', 'DIR_PIXEL_ID_DYALAK_HNA'); 
+        fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1527969212675773&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Facebook Pixel Code -->
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=DIR_PIXEL_ID_DYALAK_HNA&ev=PageView&noscript=1"/></noscript>
 
-    <!-- Microsoft Clarity Code -->
+    <!-- 👇 MICROSOFT CLARITY 👇 -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "wzgznyznn6");
+        })(window, document, "clarity", "script", "x0b0xlfzga");
     </script>
-    <!-- End Microsoft Clarity Code -->
-
 </head>
-<body class="bg-[#0f0f0f] text-white font-sans antialiased overflow-x-hidden">
+<body>
 
-    <header class="py-12 md:py-20 px-4 max-w-7xl mx-auto border-b border-gray-800">
-        <div class="flex flex-col lg:flex-row items-center gap-12">
+    <div class="top-banner">
+        ⚡ Instant Digital Delivery — Connect your devices in under 5 minutes!
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Upgrade Your <span class="gradient-text">Screen Time</span></h1>
+            <p style="font-size: 1.1rem; margin-bottom: 10px;">Transform your living room into a stadium or a cinema. Get limitless access to premium sports events, series, and global networks in <strong>4K Ultra HD</strong>.</p>
+            <p>100% stable connection designed for major sports finals and weekend binges.</p>
             
-            <div class="flex-1 text-center lg:text-left order-2 lg:order-1">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
-                    Njut av ett enormt utbud av underhållning, serier och sport i <span class="text-magenta-500">Världsklass</span>
-                </h1>
-                <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                    Streama dina favoriter stabilt och utan avbrott på alla skärmar — när du vill, var du vill.
-                </p>
-                <div class="inline-block bg-[#141414] border border-magenta-500/30 rounded-lg p-4 mb-8 text-left">
-                    <p class="text-magenta-500 font-semibold">⚡ Direkt Leverans — Kom igång på bara några minuter.</p>
-                    <p class="text-sm text-gray-400 mt-1">Välj ditt paket nedan och få tillgång direkt.</p>
-                </div>
-                <br>
-                <!-- 👇 Bouton Hero mrigel b l-Pulse w icon WhatsApp 👇 -->
-                <a href="https://wa.me/46769798271?text=Hej!%20Jag%20%C3%A4r%20intresserad%20av%20era%20paket,%20hur%20fungerar%20det%3F" target="_blank" rel="nofollow" onclick="fbq('track', 'Purchase');"
-                   class="inline-block bg-magenta-500 hover:bg-magenta-600 text-white font-bold py-4 px-10 rounded-md transition duration-300 w-full md:w-auto text-lg btn-pulse-magenta">
-                    <i class="fa-brands fa-whatsapp text-xl mr-2"></i> Kontakta på WhatsApp
+            <div class="hero-buttons">
+                <!-- 👇 BDEL NMRA HNA 👇 -->
+                <!-- Zdt lik hna class "btn-pulse" bach dir animation -->
+                <a href="https://wa.me/DIR_NMRA_HNA?text=Hello!%20I%20am%20interested%20in%20your%20digital%20setup." target="_blank" onclick="fbq('track', 'InitiateCheckout');" class="btn btn-primary btn-pulse">
+                    <i class="fa-brands fa-whatsapp"></i> Get Your Access Now
                 </a>
+                <a href="#pricing" class="btn btn-outline">See Pricing</a>
             </div>
-
-            <div class="flex-1 w-full max-w-xl mx-auto order-1 lg:order-2">
-                <img src="hero.png" alt="Premium Cinematic Streaming" class="w-full h-auto rounded-xl shadow-[0_0_30px_rgba(255,51,204,0.3)] border border-magenta-500/20 object-cover aspect-video">
-            </div>
-            
-        </div>
-    </header>
-
-    <section class="py-16 px-4 bg-[#141414]">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-10">Fungerar på alla dina enheter</h2>
-            
-            <div class="flex overflow-x-auto md:grid md:grid-cols-5 gap-4 pb-6 snap-x snap-mandatory hide-scrollbar">
-                <div class="min-w-[260px] md:min-w-0 snap-center shrink-0 bg-[#1a1a1a] border-l-4 border-magenta-500 rounded p-6">
-                    <h3 class="text-xl font-semibold mb-2">📺 Smart TV</h3>
-                    <p class="text-gray-400">Stöd för alla ledande Smart TV-märken.</p>
-                </div>
-                <div class="min-w-[260px] md:min-w-0 snap-center shrink-0 bg-[#1a1a1a] border-l-4 border-magenta-500 rounded p-6">
-                    <h3 class="text-xl font-semibold mb-2">🔥 Amazon Firestick</h3>
-                    <p class="text-gray-400">Enkel installation via Amazon Fire TV.</p>
-                </div>
-                <div class="min-w-[260px] md:min-w-0 snap-center shrink-0 bg-[#1a1a1a] border-l-4 border-magenta-500 rounded p-6">
-                    <h3 class="text-xl font-semibold mb-2">🍎 Apple TV</h3>
-                    <p class="text-gray-400">Sömlös upplevelse på hela Apple-ekosystemet.</p>
-                </div>
-                <div class="min-w-[260px] md:min-w-0 snap-center shrink-0 bg-[#1a1a1a] border-l-4 border-magenta-500 rounded p-6">
-                    <h3 class="text-xl font-semibold mb-2">📱 Android</h3>
-                    <p class="text-gray-400">Perfekt på alla Android-mobiler & surfplattor.</p>
-                </div>
-                <div class="min-w-[260px] md:min-w-0 snap-center shrink-0 bg-[#1a1a1a] border-l-4 border-magenta-500 rounded p-6">
-                    <h3 class="text-xl font-semibold mb-2">💻 PC & Mac</h3>
-                    <p class="text-gray-400">Streama direkt i din webbläsare utan krångel.</p>
-                </div>
-            </div>
-            <div class="text-center text-gray-500 text-sm mt-2 md:hidden animate-pulse">← Svep för att se fler →</div>
+            <p style="margin-top: 15px; font-size: 0.85rem;"><i class="fa-solid fa-check-circle" style="color: #10b981;"></i> No dish required. Works purely on your Wi-Fi.</p>
         </div>
     </section>
 
-    <section class="py-12 px-4 bg-magenta-500/10 border-y border-magenta-500/20">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="p-4">
-                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">+28K</div>
-                    <p class="text-magenta-500 font-semibold text-lg uppercase tracking-wider">Live Streams</p>
-                    <p class="text-gray-400 text-sm mt-2">Svenskt & Internationellt Utbud</p>
-                </div>
-                <div class="p-4 border-t md:border-t-0 md:border-l md:border-r border-gray-800">
-                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">+140K</div>
-                    <p class="text-magenta-500 font-semibold text-lg uppercase tracking-wider">Titlar i Biblioteket</p>
-                    <p class="text-gray-400 text-sm mt-2">Uppdateras kontinuerligt</p>
-                </div>
-                <div class="p-4 border-t md:border-t-0 border-gray-800">
-                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">+2,000</div>
-                    <p class="text-magenta-500 font-semibold text-lg uppercase tracking-wider">Nöjda Kunder</p>
-                    <p class="text-gray-400 text-sm mt-2">Med 99.9% Uppetid</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 px-4 max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-4 uppercase tracking-wide text-sm text-magenta-500">Prispaket</h2>
-        <h2 class="text-4xl font-bold text-center mb-6">Välj det paket som passar dig</h2>
-        <p class="text-center text-gray-400 mb-12">Flexibla priser utan dolda avgifter. Byt eller avsluta när du vill.</p>
+    <!-- Why Choose Us -->
+    <section class="container" id="features">
+        <h2 class="gradient-text text-center">Engineered for Flawless Streaming</h2>
+        <p class="text-center mb-4">No buffering, no complex setups. Just pure entertainment.</p>
         
-        <div class="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 pb-8 snap-x snap-mandatory hide-scrollbar items-start">
+        <div class="swipe-container desktop-grid mt-4">
+            <div class="swipe-item card">
+                <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
+                <h3>Zero Delay Tech</h3>
+                <p>Private optimization ensures you never miss a goal during live sports.</p>
+            </div>
+            <div class="swipe-item card">
+                <div class="icon-box"><i class="fa-solid fa-folder-open"></i></div>
+                <h3>On-Demand Library</h3>
+                <p>An endless cinematic collection of series and movies, updated weekly.</p>
+            </div>
+            <div class="swipe-item card">
+                <div class="icon-box"><i class="fa-solid fa-tv"></i></div>
+                <h3>Cross-Platform</h3>
+                <p>Sync your account on Smart TVs, tablets, Firesticks, and smartphones.</p>
+            </div>
+            <div class="swipe-item card">
+                <div class="icon-box"><i class="fa-solid fa-headset"></i></div>
+                <h3>Direct Support</h3>
+                <p>Our technical team is always a WhatsApp message away to assist you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entertainment Categories -->
+    <section class="container" style="background: var(--bg-card); padding: 60px 5%; border-radius: 15px; border: 1px solid var(--border-color);">
+        <h2 class="gradient-text text-center mb-4">A World of Content in Your Hands</h2>
+        <div class="grid-2 mt-4">
+            <div style="display: flex; gap: 15px;">
+                <i class="fa-solid fa-trophy" style="color:#3b82f6; font-size: 2rem;"></i>
+                <div>
+                    <h3>Live Sports Pass</h3>
+                    <p>Exclusive access to major football leagues, NBA, UFC, and racing events.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 15px;">
+                <i class="fa-solid fa-globe" style="color:#8b5cf6; font-size: 2rem;"></i>
+                <div>
+                    <h3>Global Networks</h3>
+                    <p>Premium national and international broadcasting, including full Bulgarian coverage.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 15px;">
+                <i class="fa-solid fa-film" style="color:#ec4899; font-size: 2rem;"></i>
+                <div>
+                    <h3>Cinematic Releases</h3>
+                    <p>Stream the newest blockbuster movies and trending series in stunning 4K.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 15px;">
+                <i class="fa-solid fa-gamepad" style="color:#f59e0b; font-size: 2rem;"></i>
+                <div>
+                    <h3>Family & Knowledge</h3>
+                    <p>A dedicated safe space for kids' shows and high-end nature documentaries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="container" id="pricing">
+        <h2 class="gradient-text text-center">Select Your Subscription</h2>
+        <p class="text-center mb-4">Local pricing in BGN. Instant digital delivery via WhatsApp.</p>
+        
+        <div class="swipe-container desktop-grid mt-4" style="padding-top: 15px;">
             
-            <div class="min-w-[280px] sm:min-w-[320px] md:min-w-0 w-[85%] md:w-auto snap-center shrink-0 bg-[#141414] border-t-4 border-magenta-500 rounded-lg p-8 hover:border-white transition-colors duration-300">
-                <h3 class="text-2xl mb-2">1 Månad</h3>
-                <p class="text-3xl font-bold mb-4">120 SEK</p>
-                <p class="text-gray-400 mb-6 text-sm">Perfekt för att prova tjänsten. Full tillgång under en månad.</p>
-                <ul class="text-gray-300 space-y-3 mb-8 text-sm">
-                    <li class="flex items-center">✅ <span class="ml-2">Fullständigt Svenskt Utbud</span></li>
-                    <li class="flex items-center">✅ <span class="ml-2">Obegränsad tillgång till serier</span></li>
-                    <li class="flex items-center">✅ <span class="ml-2">4K / UHD / FHD Kvalitet</span></li>
-                    <li class="flex items-center">✅ <span class="ml-2">Buffertfri Upplevelse</span></li>
-                    <li class="flex items-center">✅ <span class="ml-2">Kontinuerliga Uppdateringar</span></li>
-                    <li class="flex items-center">✅ <span class="ml-2">24/7 Support via WhatsApp</span></li>
+            <!-- 1 Month -->
+            <div class="swipe-item card pricing-card">
+                <h3 style="color:var(--text-muted);">1 Month</h3>
+                <h2 style="font-size:2.2rem; margin:10px 0;">15 BGN</h2>
+                <ul class="price-list">
+                    <li><i class="fa-solid fa-check"></i> Premium Live Events</li>
+                    <li><i class="fa-solid fa-check"></i> Full On-Demand Access</li>
+                    <li><i class="fa-solid fa-check"></i> High Definition Quality</li>
+                    <li><i class="fa-solid fa-check"></i> Standard Support</li>
                 </ul>
-                <a href="https://wa.me/46769798271?text=Hej!%20Jag%20%C3%A4r%20intresserad%20av%201%20m%C3%A5nad%20paketet,%20hur%20fungerar%20det%3F" target="_blank" rel="nofollow" onclick="fbq('track', 'Purchase');" class="block text-center border border-gray-600 hover:bg-gray-800 text-white font-bold py-3 rounded transition">Välj paket</a>
+                <a href="https://wa.me/DIR_NMRA_HNA?text=Hello!%20I%20want%20the%201%20Month%20Access." target="_blank" onclick="fbq('track', 'Purchase', {value: 15.00, currency: 'BGN'});" class="btn btn-outline">Select Plan</a>
             </div>
 
-            <!-- 👇 Zdt Glow l-Had l-Ba9a bash tban mzyan 👇 -->
-            <div class="min-w-[280px] sm:min-w-[320px] md:min-w-0 w-[85%] md:w-auto snap-center shrink-0 bg-[#1a1a1a] border border-magenta-500 rounded-lg p-8 relative shadow-[0_0_25px_rgba(255,51,204,0.25)] scale-105 md:scale-110 z-10">
-                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-magenta-500 text-white px-4 py-1 text-sm font-bold rounded-full w-max shadow-lg">⭐ MEST POPULÄR</div>
-                <h3 class="text-2xl mb-2 mt-2 text-magenta-400">12 Månader</h3>
-                <p class="text-3xl font-bold mb-4">799 SEK</p>
-                <p class="text-gray-400 mb-6 text-sm">Bästa värdet. Maximalt sparande.</p>
-                <ul class="text-gray-300 space-y-3 mb-8 text-sm font-semibold">
-                    <li class="flex items-center text-white">✅ <span class="ml-2">Fullständigt Svenskt & Sport Utbud</span></li>
-                    <li class="flex items-center text-white">✅ <span class="ml-2">Obegränsad tillgång till serier</span></li>
-                    <li class="flex items-center text-white">✅ <span class="ml-2">4K / UHD / FHD Kvalitet</span></li>
-                    <li class="flex items-center text-white">✅ <span class="ml-2">Premium Buffertfri Upplevelse</span></li>
-                    <li class="flex items-center text-white">✅ <span class="ml-2">Kontinuerliga Uppdateringar</span></li>
-                    <li class="flex items-center text-white">✅ <span class="ml-2">VIP 24/7 Prioriterad Support</span></li>
+            <!-- 3 Months -->
+            <div class="swipe-item card pricing-card">
+                <h3 style="color:var(--text-muted);">3 Months</h3>
+                <h2 style="font-size:2.2rem; margin:10px 0;">35 BGN</h2>
+                <ul class="price-list">
+                    <li><i class="fa-solid fa-check"></i> Premium Live Events</li>
+                    <li><i class="fa-solid fa-check"></i> Full On-Demand Access</li>
+                    <li><i class="fa-solid fa-check"></i> 4K / UHD Quality</li>
+                    <li><i class="fa-solid fa-check"></i> Standard Support</li>
+                    <li><i class="fa-solid fa-check"></i> Value Saver</li>
                 </ul>
-                <a href="https://wa.me/46769798271?text=Hej!%20Jag%20%C3%A4r%20intresserad%20av%2012%20m%C3%A5nader%20paketet,%20hur%20fungerar%20det%3F" target="_blank" rel="nofollow" onclick="fbq('track', 'Purchase');" class="block text-center bg-magenta-500 hover:bg-magenta-600 text-white font-bold py-3 rounded transition btn-pulse-magenta">Välj paket</a>
+                <a href="https://wa.me/DIR_NMRA_HNA?text=Hello!%20I%20want%20the%203%20Months%20Access." target="_blank" onclick="fbq('track', 'Purchase', {value: 35.00, currency: 'BGN'});" class="btn btn-outline">Select Plan</a>
             </div>
 
-            <div class="min-w-[280px] sm:min-w-[320px] md:min-w-0 w-[85%] md:w-auto snap-center shrink-0 bg-[#141414] border-t-4 border-magenta-500 rounded-lg p-8 hover:border-white transition-colors duration-300">
-                <h3 class="text-2xl mb-2">6 Månader</h3>
-                <p class="text-3xl font-bold mb-4">450 SEK</p>
-                <p class="text-gray-400 mb-6 text-sm">Spara mer och njut längre. Populärt val för flexibilitet.</p>
-                <ul class="text-gray-300 space-y-3 mb-8 text-sm">
-                    <li class="flex items-center">✅ <span class="ml-2">Fullständigt Svenskt Utbud</span></li>
-                    <li class="flex items-center">✅ <span class="ml-2">Obegränsad tillgång till serier</span></li>
-                    <li class="flex items-center">✅ <span class="ml-2">4K / UHD / FHD Kvalitet</span></li>
-                    <li class="flex items-center">✅ <span class="ml-2">Buffertfri Upplevelse</span></li>
-                    <li class="flex items-center">✅ <span class="ml-2">Kontinuerliga Uppdateringar</span></li>
-                    <li class="flex items-center">✅ <span class="ml-2">24/7 Support via WhatsApp</span></li>
+            <!-- 6 Months -->
+            <div class="swipe-item card pricing-card">
+                <h3 style="color:var(--text-muted);">6 Months</h3>
+                <h2 style="font-size:2.2rem; margin:10px 0;">59 BGN</h2>
+                <ul class="price-list">
+                    <li><i class="fa-solid fa-check"></i> Everything Unlocked</li>
+                    <li><i class="fa-solid fa-check"></i> 4K / UHD Quality</li>
+                    <li><i class="fa-solid fa-check"></i> Lag-Free Experience</li>
+                    <li><i class="fa-solid fa-check"></i> Priority Setup Help</li>
+                    <li><i class="fa-solid fa-check"></i> Save 35%</li>
                 </ul>
-                <a href="https://wa.me/46769798271?text=Hej!%20Jag%20%C3%A4r%20intresserad%20av%206%20m%C3%A5nader%20paketet,%20hur%20fungerar%20det%3F" target="_blank" rel="nofollow" onclick="fbq('track', 'Purchase');" class="block text-center border border-gray-600 hover:bg-gray-800 text-white font-bold py-3 rounded transition">Välj paket</a>
+                <a href="https://wa.me/DIR_NMRA_HNA?text=Hello!%20I%20want%20the%206%20Months%20Access." target="_blank" onclick="fbq('track', 'Purchase', {value: 59.00, currency: 'BGN'});" class="btn btn-outline">Select Plan</a>
             </div>
-            
+
+            <!-- 12 Months -->
+            <div class="swipe-item card pricing-card" style="border: 2px solid var(--primary-color); box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);">
+                <div class="badge"><i class="fa-solid fa-star"></i> MOST POPULAR</div>
+                <h3 style="color:var(--text-muted);">12 Months</h3>
+                <h2 style="font-size:2.2rem; margin:10px 0;">99 BGN</h2>
+                <ul class="price-list">
+                    <li><i class="fa-solid fa-check" style="color: #3b82f6;"></i> Everything Unlocked</li>
+                    <li><i class="fa-solid fa-check" style="color: #3b82f6;"></i> Premium 4K Stability</li>
+                    <li><i class="fa-solid fa-check" style="color: #3b82f6;"></i> Premium Cloud Network</li>
+                    <li><i class="fa-solid fa-check" style="color: #3b82f6;"></i> VIP 24/7 Support</li>
+                    <li><i class="fa-solid fa-check" style="color: #3b82f6;"></i> Maximum Savings (45%)</li>
+                </ul>
+                <a href="https://wa.me/DIR_NMRA_HNA?text=Hello!%20I%20want%20the%2012%20Months%20Premium%20Access." target="_blank" onclick="fbq('track', 'Purchase', {value: 99.00, currency: 'BGN'});" class="btn btn-primary">Select Plan</a>
+            </div>
+
         </div>
     </section>
 
-    <section class="py-16 px-4 bg-[#141414] border-t border-gray-800">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">Vad våra kunder säger</h2>
+    <!-- Interactive FAQ -->
+    <section class="container">
+        <h2 class="gradient-text text-center mb-4">Common Questions</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
             
-            <div class="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 pb-8 snap-x snap-mandatory hide-scrollbar">
-                
-                <div class="min-w-[280px] md:min-w-0 snap-center shrink-0 bg-[#1a1a1a] rounded-lg p-6 border border-gray-800">
-                    <div class="flex text-yellow-400 mb-3">★★★★★</div>
-                    <p class="text-gray-300 mb-4 italic">"Helt otroligt utbud! Jag kollar på min favoritliga utan minsta lagg. Bästa tjänsten jag har haft."</p>
-                    <p class="text-magenta-500 font-semibold">— Johan S.</p>
-                </div>
-                
-                <div class="min-w-[280px] md:min-w-0 snap-center shrink-0 bg-[#1a1a1a] rounded-lg p-6 border border-gray-800">
-                    <div class="flex text-yellow-400 mb-3">★★★★★</div>
-                    <p class="text-gray-300 mb-4 italic">"Snabb kundservice på WhatsApp. Fick hjälp att installera på min Samsung TV på 5 minuter. Rekommenderas starkt!"</p>
-                    <p class="text-magenta-500 font-semibold">— Maria L.</p>
-                </div>
-                
-                <div class="min-w-[280px] md:min-w-0 snap-center shrink-0 bg-[#1a1a1a] rounded-lg p-6 border border-gray-800">
-                    <div class="flex text-yellow-400 mb-3">★★★★★</div>
-                    <p class="text-gray-300 mb-4 italic">"Mycket bra bildkvalitet. Allt är i 4K/FHD precis som utlovat. Stort plus för den snabba leveransen efter köp."</p>
-                    <p class="text-magenta-500 font-semibold">— Erik K.</p>
-                </div>
-                
-                <div class="min-w-[280px] md:min-w-0 snap-center shrink-0 bg-[#1a1a1a] rounded-lg p-6 border border-gray-800">
-                    <div class="flex text-yellow-400 mb-3">★★★★★</div>
-                    <p class="text-gray-300 mb-4 italic">"Har testat många andra leverantörer men denna är överlägset mest stabil under helgerna när många tittar."</p>
-                    <p class="text-magenta-500 font-semibold">— Anders P.</p>
-                </div>
-                
-            </div>
-            <div class="text-center text-gray-500 text-sm mt-2 md:hidden animate-pulse">← Svep för att läsa fler →</div>
-        </div>
-    </section>
+            <details class="faq-item">
+                <summary>Do I need extra hardware? <span style="color: var(--primary-color);"><i class="fa-solid fa-chevron-down"></i></span></summary>
+                <p>No extra boxes or satellites are needed. Our service works through an app that you can download directly to your Smart TV, smartphone, or computer.</p>
+            </details>
 
-    <section class="py-20 px-4 max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-10">Vanliga Frågor (FAQ)</h2>
-        
-        <div class="space-y-4">
-            <details class="group bg-[#141414] border border-gray-800 rounded-lg p-5 cursor-pointer hover:border-magenta-500/50 transition">
-                <summary class="flex justify-between items-center font-semibold text-lg outline-none">
-                    <span>Hur snabbt får jag tillgång?</span>
-                    <span class="text-magenta-500 transition group-open:rotate-180">▼</span>
-                </summary>
-                <p class="text-gray-400 mt-4 leading-relaxed pt-4 border-t border-gray-800">Du får dina inloggningsuppgifter direkt på WhatsApp efter att du kontaktat oss. Hela processen tar mindre än 5 minuter.</p>
+            <details class="faq-item">
+                <summary>How fast is the setup? <span style="color: var(--primary-color);"><i class="fa-solid fa-chevron-down"></i></span></summary>
+                <p>Extremely fast. Once you contact us via WhatsApp, we guide you through a simple 2-minute login process and you can start watching immediately.</p>
             </details>
             
-            <details class="group bg-[#141414] border border-gray-800 rounded-lg p-5 cursor-pointer hover:border-magenta-500/50 transition">
-                <summary class="flex justify-between items-center font-semibold text-lg outline-none">
-                    <span>Behöver jag en box för att titta?</span>
-                    <span class="text-magenta-500 transition group-open:rotate-180">▼</span>
-                </summary>
-                <p class="text-gray-400 mt-4 leading-relaxed pt-4 border-t border-gray-800">Nej, du behöver ingen extra box. Du kan ladda ner en app direkt i din Smart TV, Apple TV, telefon eller använda din dator.</p>
+            <details class="faq-item">
+                <summary>Is the connection stable during big games? <span style="color: var(--primary-color);"><i class="fa-solid fa-chevron-down"></i></span></summary>
+                <p>Yes. We use private server routing specifically designed to handle high traffic during major football finals and sports events without freezing.</p>
             </details>
 
-            <details class="group bg-[#141414] border border-gray-800 rounded-lg p-5 cursor-pointer hover:border-magenta-500/50 transition">
-                <summary class="flex justify-between items-center font-semibold text-lg outline-none">
-                    <span>Krävs det VPN?</span>
-                    <span class="text-magenta-500 transition group-open:rotate-180">▼</span>
-                </summary>
-                <p class="text-gray-400 mt-4 leading-relaxed pt-4 border-t border-gray-800">Nej, vi använder optimerade och privata nätverkslösningar för att garantera en stabil ström helt utan avbrott, även under stora live-evenemang.</p>
+            <details class="faq-item">
+                <summary>Is Bulgarian content available? <span style="color: var(--primary-color);"><i class="fa-solid fa-chevron-down"></i></span></summary>
+                <p>Absolutely. You get full access to national broadcasting, news, and sports in Bulgaria, plus native subtitles for on-demand movies.</p>
             </details>
 
-            <details class="group bg-[#141414] border border-gray-800 rounded-lg p-5 cursor-pointer hover:border-magenta-500/50 transition">
-                <summary class="flex justify-between items-center font-semibold text-lg outline-none">
-                    <span>Finns det svenskt innehåll och text?</span>
-                    <span class="text-magenta-500 transition group-open:rotate-180">▼</span>
-                </summary>
-                <p class="text-gray-400 mt-4 leading-relaxed pt-4 border-t border-gray-800">Självklart! Vårt paket innehåller alla de mest populära svenska alternativen och svenska undertexter på de flesta filmer och serier.</p>
-            </details>
         </div>
     </section>
 
-    <section class="py-16 px-4 bg-[#141414] text-center border-t border-gray-800">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">Redo att uppleva premium-underhållning?</h2>
-        <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-            Välj det paket som passar dig bäst och uppgradera din TV idag. Kontakta oss på WhatsApp så hjälper vi dig igång — direkt.
-        </p>
+    <!-- Footer CTA -->
+    <footer class="container text-center" style="border-top: 1px solid var(--border-color); margin-top: 20px; padding-top: 60px;">
+        <h2 class="gradient-text">Ready to Upgrade?</h2>
+        <p class="mb-4" style="max-width: 600px; margin: 0 auto 30px auto;">Join thousands of users enjoying seamless digital entertainment. Send us a message and we'll connect you right now.</p>
         
-        <div class="bg-[#1a2e1c] border border-[#234026] rounded-md p-6 mb-8 max-w-2xl mx-auto text-left flex items-start gap-4">
-            <div class="text-green-500 mt-1 text-xl">🏆</div>
-            <div>
-                <p class="text-green-100 font-semibold text-lg">Premiumkvalitet utan avbrott</p>
-                <p class="text-green-300 text-sm mt-1">Marknadens stabilaste servrar. Kom igång direkt efter betalning.</p>
-            </div>
+        <div style="max-width: 300px; margin: 0 auto;">
+            <a href="https://wa.me/DIR_NMRA_HNA?text=Hello!%20I%20have%20a%20question%20about%20the%20service." target="_blank" class="btn btn-primary">
+                <i class="fa-brands fa-whatsapp"></i> Contact on WhatsApp
+            </a>
         </div>
         
-        <!-- 👇 Bouton Lta7t mrigel b l-Pulse w icon WhatsApp 👇 -->
-        <a href="https://wa.me/46769798271?text=Hej!%20Jag%20%C3%A4r%20intresserad%20av%20era%20paket,%20hur%20fungerar%20det%3F" target="_blank" rel="nofollow" onclick="fbq('track', 'Purchase');"
-           class="inline-block bg-magenta-500 hover:bg-magenta-600 text-white font-bold py-4 px-8 rounded-md transition w-full md:w-auto text-lg btn-pulse-magenta">
-            <i class="fa-brands fa-whatsapp text-xl mr-2"></i> Kontakta på WhatsApp
-        </a>
-    </section>
-
-    <footer class="bg-[#0f0f0f] py-8 text-center border-t border-gray-800">
-        <p class="text-gray-600 text-sm">© 2026 <a href="https://premium-sverige.online" class="hover:text-magenta-500 transition duration-300">Premium-Sverige.online</a>. Alla rättigheter förbehållna.</p>
+        <!-- Zdt lik d-domain f l-footer bach yban pro -->
+        <p class="mt-4" style="font-size: 0.9rem; color: #52525b;">Secure Digital Services. © 2026 <a href="https://www.hm-digital.xyz" style="color: #93c5fd; text-decoration: none; font-weight: 600;">HM-Digital.xyz</a>. All rights reserved.</p>
     </footer>
 
 </body>
