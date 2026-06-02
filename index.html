@@ -127,6 +127,34 @@
         details.faq-item summary { font-weight: bold; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center; outline: none; }
         details.faq-item summary::-webkit-details-marker { display: none; }
         details.faq-item p { margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color); }
+
+        /* 👇 CSS ديال Supported Devices الجديد 👇 */
+        .devices-section { text-align: center; padding: 60px 15px; background-color: #0a0a0a; border-top: 1px solid #27272a; border-bottom: 1px solid #27272a; margin-bottom: 40px;}
+        .devices-title { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 30px; }
+        .devices-title span { color: #84cc16; } 
+        .devices-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
+        
+        @media(min-width: 768px) { .devices-grid { grid-template-columns: repeat(4, 1fr); gap: 15px; } }
+        
+        .device-badge { 
+            display: flex; align-items: center; justify-content: center; 
+            background: #141414; border: 1px solid #3f3f46; border-radius: 8px; 
+            padding: 12px; gap: 12px; transition: all 0.3s ease; cursor: default;
+        }
+        .device-badge:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
+        .device-badge i { font-size: 2rem; }
+        .device-text { display: flex; flex-direction: column; text-align: left; line-height: 1.2; }
+        .device-text span { font-size: 0.65rem; color: #a1a1aa; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+        .device-text strong { font-size: 1.1rem; color: #fff; font-weight: 700; }
+        
+        .badge-android { border-color: rgba(74, 222, 128, 0.3); } .badge-android:hover { border-color: #4ade80; } .badge-android i { color: #4ade80; }
+        .badge-apple { border-color: rgba(248, 250, 252, 0.3); } .badge-apple:hover { border-color: #f8fafc; } .badge-apple i { color: #f8fafc; }
+        .badge-windows { border-color: rgba(56, 189, 248, 0.3); } .badge-windows:hover { border-color: #38bdf8; } .badge-windows i { color: #38bdf8; }
+        .badge-firetv { border-color: rgba(249, 115, 22, 0.3); } .badge-firetv:hover { border-color: #f97316; } .badge-firetv i { color: #f97316; }
+        .badge-smarttv { border-color: rgba(168, 85, 247, 0.3); } .badge-smarttv:hover { border-color: #a855f7; } .badge-smarttv i { color: #a855f7; }
+        .badge-chrome { border-color: rgba(250, 204, 21, 0.3); } .badge-chrome:hover { border-color: #facc15; } .badge-chrome i { color: #facc15; }
+        .badge-lg { border-color: rgba(225, 29, 72, 0.3); } .badge-lg:hover { border-color: #e11d48; } .badge-lg i { color: #e11d48; }
+        .badge-mag { border-color: rgba(255, 255, 255, 0.3); } .badge-mag:hover { border-color: #ffffff; } .badge-mag i { color: #ffffff; }
     </style>
 
     <script>
@@ -139,10 +167,10 @@
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
         
-        fbq('init', '111111111111111'); 
+        fbq('init', 'DIR_PIXEL_ID_DYALAK_HNA'); 
         fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=111111111111111&ev=PageView&noscript=1"/></noscript>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=DIR_PIXEL_ID_DYALAK_HNA&ev=PageView&noscript=1"/></noscript>
 
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -165,7 +193,7 @@
             <p>100% stable connection designed for major sports finals and weekend binges.</p>
             
             <div class="hero-buttons">
-                <a href="https://api.whatsapp.com/send?phone=359000000000&text=Hello!%20I%20am%20interested%20in%20your%20digital%20setup." rel="nofollow" onclick="fbq('track', 'Purchase');" class="btn btn-primary btn-pulse">
+                <a href="https://api.whatsapp.com/send?phone=DIR_NMRA_HNA&text=Hello!%20I%20am%20interested%20in%20your%20digital%20setup." rel="nofollow" onclick="fbq('track', 'Purchase');" class="btn btn-primary btn-pulse">
                     <i class="fa-brands fa-whatsapp"></i> Contact on WhatsApp
                 </a>
                 <a href="#pricing" class="btn btn-outline">See Pricing</a>
@@ -173,6 +201,45 @@
             <p style="margin-top: 15px; font-size: 0.85rem;"><i class="fa-solid fa-check-circle" style="color: #10b981;"></i> No dish required. Works purely on your Wi-Fi.</p>
         </div>
     </section>
+
+    <!-- 👇 السيكسيون الجديدة ديال Devices تحطات هنا 👇 -->
+    <div class="devices-section">
+        <div class="devices-title">Supported <span>Devices</span></div>
+        <div class="devices-grid">
+            <div class="device-badge badge-android">
+                <i class="fa-brands fa-android"></i>
+                <div class="device-text"><span>Available on</span><strong>Android</strong></div>
+            </div>
+            <div class="device-badge badge-apple">
+                <i class="fa-brands fa-apple"></i>
+                <div class="device-text"><span>Available on</span><strong>iOS / Mac</strong></div>
+            </div>
+            <div class="device-badge badge-windows">
+                <i class="fa-brands fa-windows"></i>
+                <div class="device-text"><span>Available on</span><strong>Windows</strong></div>
+            </div>
+            <div class="device-badge badge-firetv">
+                <i class="fa-brands fa-amazon"></i>
+                <div class="device-text"><span>Available on</span><strong>Fire TV</strong></div>
+            </div>
+            <div class="device-badge badge-mag">
+                <i class="fa-solid fa-box"></i>
+                <div class="device-text"><span>Available on</span><strong>MAG Box</strong></div>
+            </div>
+            <div class="device-badge badge-smarttv">
+                <i class="fa-solid fa-tv"></i>
+                <div class="device-text"><span>Available on</span><strong>Smart TV</strong></div>
+            </div>
+            <div class="device-badge badge-lg">
+                <i class="fa-solid fa-display"></i>
+                <div class="device-text"><span>Available on</span><strong>LG Smart</strong></div>
+            </div>
+            <div class="device-badge badge-chrome">
+                <i class="fa-brands fa-chrome"></i>
+                <div class="device-text"><span>Available on</span><strong>Chrome</strong></div>
+            </div>
+        </div>
+    </div>
 
     <section class="container" id="features">
         <h2 class="gradient-text text-center">Engineered for Flawless Streaming</h2>
@@ -250,7 +317,7 @@
                     <li><i class="fa-solid fa-check"></i> High Definition Quality</li>
                     <li><i class="fa-solid fa-check"></i> Standard Support</li>
                 </ul>
-                <a href="https://api.whatsapp.com/send?phone=359000000000&text=Hello!%20I%20want%20the%201%20Month%20Access." rel="nofollow" onclick="fbq('track', 'Purchase', {value: 15.00, currency: 'BGN'});" class="btn btn-outline">Select Plan</a>
+                <a href="https://api.whatsapp.com/send?phone=DIR_NMRA_HNA&text=Hello!%20I%20want%20the%201%20Month%20Access." rel="nofollow" onclick="fbq('track', 'Purchase', {value: 15.00, currency: 'BGN'});" class="btn btn-outline">Select Plan</a>
             </div>
 
             <div class="swipe-item card pricing-card">
@@ -263,7 +330,7 @@
                     <li><i class="fa-solid fa-check"></i> Standard Support</li>
                     <li><i class="fa-solid fa-check"></i> Value Saver</li>
                 </ul>
-                <a href="https://api.whatsapp.com/send?phone=359000000000&text=Hello!%20I%20want%20the%203%20Months%20Access." rel="nofollow" onclick="fbq('track', 'Purchase', {value: 35.00, currency: 'BGN'});" class="btn btn-outline">Select Plan</a>
+                <a href="https://api.whatsapp.com/send?phone=DIR_NMRA_HNA&text=Hello!%20I%20want%20the%203%20Months%20Access." rel="nofollow" onclick="fbq('track', 'Purchase', {value: 35.00, currency: 'BGN'});" class="btn btn-outline">Select Plan</a>
             </div>
 
             <div class="swipe-item card pricing-card">
@@ -276,7 +343,7 @@
                     <li><i class="fa-solid fa-check"></i> Priority Setup Help</li>
                     <li><i class="fa-solid fa-check"></i> Save 35%</li>
                 </ul>
-                <a href="https://api.whatsapp.com/send?phone=359000000000&text=Hello!%20I%20want%20the%206%20Months%20Access." rel="nofollow" onclick="fbq('track', 'Purchase', {value: 59.00, currency: 'BGN'});" class="btn btn-outline">Select Plan</a>
+                <a href="https://api.whatsapp.com/send?phone=DIR_NMRA_HNA&text=Hello!%20I%20want%20the%206%20Months%20Access." rel="nofollow" onclick="fbq('track', 'Purchase', {value: 59.00, currency: 'BGN'});" class="btn btn-outline">Select Plan</a>
             </div>
 
             <div class="swipe-item card pricing-card" style="border: 2px solid var(--primary-color); box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);">
@@ -290,7 +357,7 @@
                     <li><i class="fa-solid fa-check" style="color: #3b82f6;"></i> VIP 24/7 Support</li>
                     <li><i class="fa-solid fa-check" style="color: #3b82f6;"></i> Maximum Savings (45%)</li>
                 </ul>
-                <a href="https://api.whatsapp.com/send?phone=359000000000&text=Hello!%20I%20want%20the%2012%20Months%20Premium%20Access." rel="nofollow" onclick="fbq('track', 'Purchase', {value: 99.00, currency: 'BGN'});" class="btn btn-primary">Select Plan</a>
+                <a href="https://api.whatsapp.com/send?phone=DIR_NMRA_HNA&text=Hello!%20I%20want%20the%2012%20Months%20Premium%20Access." rel="nofollow" onclick="fbq('track', 'Purchase', {value: 99.00, currency: 'BGN'});" class="btn btn-primary">Select Plan</a>
             </div>
         </div>
     </section>
@@ -321,14 +388,14 @@
         <h2 class="gradient-text">Ready to Upgrade?</h2>
         <p class="mb-4" style="max-width: 600px; margin: 0 auto 30px auto;">Join thousands of users enjoying seamless digital entertainment. Send us a message and we'll connect you right now.</p>
         <div style="max-width: 300px; margin: 0 auto;">
-            <a href="https://api.whatsapp.com/send?phone=359000000000&text=Hello!%20I%20have%20a%20question%20about%20the%20service." rel="nofollow" onclick="fbq('track', 'Purchase');" class="btn btn-primary">
+            <a href="https://api.whatsapp.com/send?phone=DIR_NMRA_HNA&text=Hello!%20I%20have%20a%20question%20about%20the%20service." rel="nofollow" onclick="fbq('track', 'Purchase');" class="btn btn-primary">
                 <i class="fa-brands fa-whatsapp"></i> Contact on WhatsApp
             </a>
         </div>
         <p class="mt-4" style="font-size: 0.9rem; color: #52525b;">Secure Digital Services. © 2026 <a href="https://www.hm-digital.xyz" style="color: #93c5fd; text-decoration: none; font-weight: 600;">HM-Digital.xyz</a>. All rights reserved.</p>
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=359000000000&text=Hello!%20I%20need%20help." rel="nofollow" onclick="fbq('track', 'Purchase');" style="position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none;">
+    <a href="https://api.whatsapp.com/send?phone=DIR_NMRA_HNA&text=Hello!%20I%20need%20help." rel="nofollow" onclick="fbq('track', 'Purchase');" style="position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none;">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
