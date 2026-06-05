@@ -20,6 +20,7 @@
             --text-muted: #a1a1aa;
             --primary-gradient: linear-gradient(135deg, #2563eb, #8b5cf6);
             --primary-color: #3b82f6;
+            --accent-green: #84cc16; /* Added ZenioTV style green */
             --border-color: #27272a;
         }
 
@@ -81,11 +82,29 @@
         .hero-content { position: relative; z-index: 2; max-width: 650px; }
         .hero-buttons { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
 
+        /* Trustpilot Banner CSS */
+        .trustpilot-banner { margin-top: 25px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .trust-stars { display: flex; gap: 2px; }
+        .trust-star { background: #00b67a; color: white; padding: 3px 6px; border-radius: 2px; font-size: 0.8rem; }
+        
         @media(min-width: 768px) {
             .hero-buttons { flex-direction: row; }
             .hero-buttons .btn { width: auto; padding: 15px 40px; }
             h1 { font-size: 3.8rem; }
         }
+
+        /* Stats Section CSS */
+        .stats-section { padding: 40px 15px; background: #0a0a0a; border-bottom: 1px solid var(--border-color); }
+        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 1000px; margin: 0 auto; }
+        @media(min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
+        .stat-card {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 25px 15px; text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .stat-card:hover { border-color: var(--accent-green); transform: translateY(-3px); }
+        .stat-number { font-size: 2.2rem; font-weight: 700; color: var(--accent-green); margin-bottom: 5px; }
+        .stat-text { color: #fff; font-size: 1rem; font-weight: 600; }
 
         .swipe-container {
             display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px;
@@ -120,17 +139,20 @@
         .price-list li { margin-bottom: 12px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; }
         .price-list li i { color: #10b981; margin-top: 4px; }
 
+        /* Enhanced FAQ CSS */
         details.faq-item {
             background: var(--bg-card); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 15px; cursor: pointer; transition: all 0.3s;
         }
-        details.faq-item:hover { border-color: #3f3f46; }
+        details.faq-item:hover { border-color: var(--primary-color); }
         details.faq-item summary { font-weight: bold; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center; outline: none; }
         details.faq-item summary::-webkit-details-marker { display: none; }
-        details.faq-item p { margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color); }
+        details.faq-item summary i { transition: transform 0.3s ease; color: var(--primary-color); }
+        details.faq-item[open] summary i { transform: rotate(180deg); color: #ef4444; } /* Rotates arrow and turns red when open */
+        details.faq-item p { margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color); color: #d4d4d8; line-height: 1.7; }
 
-        .devices-section { text-align: center; padding: 60px 15px; background-color: #0a0a0a; border-top: 1px solid #27272a; border-bottom: 1px solid #27272a; margin-bottom: 40px;}
+        .devices-section { text-align: center; padding: 60px 15px; background-color: #0a0a0a; border-bottom: 1px solid #27272a; margin-bottom: 40px;}
         .devices-title { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 30px; }
-        .devices-title span { color: #84cc16; } 
+        .devices-title span { color: var(--accent-green); } 
         .devices-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
         
         @media(min-width: 768px) { .devices-grid { grid-template-columns: repeat(4, 1fr); gap: 15px; } }
@@ -193,15 +215,50 @@
             <p>100% stable connection designed for major sports finals and weekend binges.</p>
             
             <div class="hero-buttons">
-                <!-- Message: Здравейте! Интересувам се от вашата дигитална услуга. -->
                 <a href="https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B2%D0%B0%D0%BC%20%D1%81%D0%B5%20%D0%BE%D1%82%20%D0%B2%D0%B0%D1%88%D0%B0%D1%82%D0%B0%20%D0%B4%D0%B8%D0%B3%D0%B8%D1%82%D0%B0%D0%BB%D0%BD%D0%B0%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0." rel="nofollow" onclick="fbq('track', 'Purchase');" class="btn btn-primary btn-pulse">
                     <i class="fa-brands fa-whatsapp"></i> Contact on WhatsApp
                 </a>
                 <a href="#pricing" class="btn btn-outline">See Pricing</a>
             </div>
+
+            <!-- Trustpilot Badge Added Here -->
+            <div class="trustpilot-banner">
+                <span style="color: #fff; font-size: 1.1rem; font-weight: 600;">Excellent</span>
+                <div class="trust-stars">
+                    <div class="trust-star"><i class="fa-solid fa-star"></i></div>
+                    <div class="trust-star"><i class="fa-solid fa-star"></i></div>
+                    <div class="trust-star"><i class="fa-solid fa-star"></i></div>
+                    <div class="trust-star"><i class="fa-solid fa-star"></i></div>
+                    <div class="trust-star"><i class="fa-solid fa-star"></i></div>
+                </div>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">4.9 out of 5 based on 156 reviews</span>
+            </div>
+            
             <p style="margin-top: 15px; font-size: 0.85rem;"><i class="fa-solid fa-check-circle" style="color: #10b981;"></i> No dish required. Works purely on your Wi-Fi.</p>
         </div>
     </section>
+
+    <!-- New Stats Grid Section -->
+    <div class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">+7K</div>
+                <div class="stat-text">Happy Customers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">+40K</div>
+                <div class="stat-text">Live Channels</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">+1,500</div>
+                <div class="stat-text">Sport Channels</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">+54K</div>
+                <div class="stat-text">Movies & Series</div>
+            </div>
+        </div>
+    </div>
 
     <div class="devices-section">
         <div class="devices-title">Supported <span>Devices</span></div>
@@ -317,7 +374,6 @@
                     <li><i class="fa-solid fa-check"></i> High Definition Quality</li>
                     <li><i class="fa-solid fa-check"></i> Standard Support</li>
                 </ul>
-                <!-- Message: Здравейте! Искам достъп за 1 месец. -->
                 <a href="https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%201%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86." rel="nofollow" onclick="fbq('track', 'Purchase', {value: 15.00, currency: 'BGN'});" class="btn btn-outline">Select Plan</a>
             </div>
 
@@ -331,7 +387,6 @@
                     <li><i class="fa-solid fa-check"></i> Standard Support</li>
                     <li><i class="fa-solid fa-check"></i> Value Saver</li>
                 </ul>
-                <!-- Message: Здравейте! Искам достъп за 3 месеца. -->
                 <a href="https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%203%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86%D0%B0." rel="nofollow" onclick="fbq('track', 'Purchase', {value: 35.00, currency: 'BGN'});" class="btn btn-outline">Select Plan</a>
             </div>
 
@@ -345,7 +400,6 @@
                     <li><i class="fa-solid fa-check"></i> Priority Setup Help</li>
                     <li><i class="fa-solid fa-check"></i> Save 35%</li>
                 </ul>
-                <!-- Message: Здравейте! Искам достъп за 6 месеца. -->
                 <a href="https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%206%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86%D0%B0." rel="nofollow" onclick="fbq('track', 'Purchase', {value: 59.00, currency: 'BGN'});" class="btn btn-outline">Select Plan</a>
             </div>
 
@@ -360,30 +414,34 @@
                     <li><i class="fa-solid fa-check" style="color: #3b82f6;"></i> VIP 24/7 Support</li>
                     <li><i class="fa-solid fa-check" style="color: #3b82f6;"></i> Maximum Savings (45%)</li>
                 </ul>
-                <!-- Message: Здравейте! Искам премиум достъп за 12 месеца. -->
                 <a href="https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%BF%D1%80%D0%B5%D0%BC%D0%B8%D1%83%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%2012%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86%D0%B0." rel="nofollow" onclick="fbq('track', 'Purchase', {value: 99.00, currency: 'BGN'});" class="btn btn-primary">Select Plan</a>
             </div>
         </div>
     </section>
 
+    <!-- Enhanced FAQ Section -->
     <section class="container">
-        <h2 class="gradient-text text-center mb-4">Common Questions</h2>
+        <h2 class="gradient-text text-center mb-4">Frequently Asked Questions</h2>
         <div style="max-width: 800px; margin: 0 auto;">
             <details class="faq-item">
-                <summary>Do I need extra hardware? <span style="color: var(--primary-color);"><i class="fa-solid fa-chevron-down"></i></span></summary>
-                <p>No extra boxes or satellites are needed. Our service works through an app that you can download directly to your Smart TV, smartphone, or computer.</p>
+                <summary>What devices can I watch it on? <i><i class="fa-solid fa-chevron-down"></i></i></summary>
+                <p>The service can be used on various devices, including Smart TVs (Samsung, LG, Android), smartphones (iOS and Android), computers, MAG boxes, and Firesticks.</p>
             </details>
             <details class="faq-item">
-                <summary>How fast is the setup? <span style="color: var(--primary-color);"><i class="fa-solid fa-chevron-down"></i></span></summary>
-                <p>Extremely fast. Once you contact us via WhatsApp, we guide you through a simple 2-minute login process and you can start watching immediately.</p>
+                <summary>Do I need extra hardware? <i><i class="fa-solid fa-chevron-down"></i></i></summary>
+                <p>No extra boxes or satellites are needed. Our service works through an app that you can download directly to your devices using your existing Wi-Fi connection.</p>
             </details>
             <details class="faq-item">
-                <summary>Is the connection stable during big games? <span style="color: var(--primary-color);"><i class="fa-solid fa-chevron-down"></i></span></summary>
-                <p>Yes. We use private server routing specifically designed to handle high traffic during major football finals and sports events without freezing.</p>
+                <summary>How fast is the setup? <i><i class="fa-solid fa-chevron-down"></i></i></summary>
+                <p>Extremely fast! Once you contact us via WhatsApp, we guide you through a simple login process. After making a payment, you'll be watching in less than 5 minutes.</p>
             </details>
             <details class="faq-item">
-                <summary>Is Bulgarian content available? <span style="color: var(--primary-color);"><i class="fa-solid fa-chevron-down"></i></span></summary>
-                <p>Absolutely. You get full access to national broadcasting, news, and sports in Bulgaria, plus native subtitles for on-demand movies.</p>
+                <summary>Is the connection stable during big games? <i><i class="fa-solid fa-chevron-down"></i></i></summary>
+                <p>Yes. We use premium private server routing specifically designed to handle high traffic during major football finals and live sports events without freezing.</p>
+            </details>
+            <details class="faq-item">
+                <summary>What payment options are available? <i><i class="fa-solid fa-chevron-down"></i></i></summary>
+                <p>We accept secure payments via credit/debit cards and direct bank transfers. We'll send you a secure link on WhatsApp once you are ready to order.</p>
             </details>
         </div>
     </section>
@@ -392,7 +450,6 @@
         <h2 class="gradient-text">Ready to Upgrade?</h2>
         <p class="mb-4" style="max-width: 600px; margin: 0 auto 30px auto;">Join thousands of users enjoying seamless digital entertainment. Send us a message and we'll connect you right now.</p>
         <div style="max-width: 300px; margin: 0 auto;">
-            <!-- Message: Здравейте! Имам въпрос относно услугата. -->
             <a href="https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BC%D0%B0%D0%BC%20%D0%B2%D1%8A%D0%BF%D1%80%D0%BE%D1%81%20%D0%BE%D1%82%D0%BD%D0%BE%D1%81%D0%BD%D0%BE%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D1%82%D0%B0." rel="nofollow" onclick="fbq('track', 'Purchase');" class="btn btn-primary">
                 <i class="fa-brands fa-whatsapp"></i> Contact on WhatsApp
             </a>
@@ -400,7 +457,6 @@
         <p class="mt-4" style="font-size: 0.9rem; color: #52525b;">Secure Digital Services. © 2026 <a href="https://www.hm-digital.xyz" style="color: #93c5fd; text-decoration: none; font-weight: 600;">HM-Digital.xyz</a>. All rights reserved.</p>
     </footer>
 
-    <!-- Message: Здравейте! Имам нужда от помощ. -->
     <a href="https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BC%D0%B0%D0%BC%20%D0%BD%D1%83%D0%B6%D0%B4%D0%B0%20%D0%BE%D1%82%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89." rel="nofollow" onclick="fbq('track', 'Purchase');" style="position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none;">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
