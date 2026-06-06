@@ -104,17 +104,16 @@
         .stat-number { font-size: 2.2rem; font-weight: 700; color: var(--accent-green); margin-bottom: 5px; }
         .stat-text { color: #fff; font-size: 1rem; font-weight: 600; }
 
+        /* Modified Swipe Container for Grid view on mobile */
         .swipe-container {
-            display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px;
-            scroll-snap-type: x mandatory; -ms-overflow-style: none; scrollbar-width: none;
+            display: grid; grid-template-columns: 1fr; gap: 15px; padding-bottom: 10px;
         }
-        .swipe-container::-webkit-scrollbar { display: none; }
-        .swipe-item { min-width: 280px; scroll-snap-align: center; flex: 0 0 auto; }
+        .swipe-item { width: 100%; }
         
         .grid-2 { display: grid; grid-template-columns: 1fr; gap: 20px; }
         @media(min-width: 768px) {
             .grid-2 { grid-template-columns: repeat(2, 1fr); }
-            .swipe-container.desktop-grid { display: grid; grid-template-columns: repeat(4, 1fr); overflow: visible; }
+            .swipe-container { grid-template-columns: repeat(4, 1fr); } /* Desktop 4 columns */
         }
 
         .card {
