@@ -18,10 +18,8 @@
             --bg-card: #141414;
             --text-main: #f8f9fa;
             --text-muted: #a1a1aa;
-            /* Neon Gradient matching your logo */
             --primary-gradient: linear-gradient(135deg, #38bdf8, #a855f7);
             --primary-color: #a855f7;
-            /* Changed accent to Cyan instead of green */
             --accent-green: #38bdf8; 
             --border-color: #27272a;
         }
@@ -74,16 +72,21 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: #fff;
-            letter-spacing: 1px;
+            font-size: 1.4rem;
         }
         .brand-logo img {
             height: 40px;
             width: 40px;
             border-radius: 8px;
             object-fit: cover;
+        }
+        /* Added class for Gradient Text on the Brand Name */
+        .brand-text {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            letter-spacing: 0.5px;
         }
 
         .btn {
@@ -169,7 +172,7 @@
             box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
         }
 
-        /* --- Pricing Horizontal Scroll (Smooth, No Snap) --- */
+        /* --- Pricing Horizontal Scroll --- */
         .pricing-scroll-container {
             display: flex; gap: 15px; overflow-x: auto; padding-bottom: 25px; margin-top: 25px;
             -ms-overflow-style: none; scrollbar-width: none;
@@ -299,7 +302,7 @@
     <header>
         <div class="brand-logo">
             <img src="./IMG_5346.JPG.jpeg" alt="HM-Digital Logo">
-            HM-Digital
+            <span class="brand-text">HM-Digital</span>
         </div>
     </header>
 
@@ -339,7 +342,7 @@
                 <div class="stat-text">Happy Customers</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">+40K</div>
+                <div class="stat-number">+25K</div>
                 <div class="stat-text">Live Channels</div>
             </div>
             <div class="stat-card">
@@ -347,7 +350,7 @@
                 <div class="stat-text">Sport Channels</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">+54K</div>
+                <div class="stat-number">+120K</div>
                 <div class="stat-text">Movies & Series</div>
             </div>
         </div>
@@ -487,12 +490,12 @@
                     <h2 style="font-size:2.2rem; margin:10px 0;">15 BGN</h2>
                     <ul class="price-list">
                         <li><i class="fa-solid fa-check"></i> 4K Ultra HD Streaming Quality</li>
-                        <li><i class="fa-solid fa-check"></i> +25,000 Live Channels Worldwide</li>
-                        <li><i class="fa-solid fa-check"></i> +120,000 Movies & TV Shows</li>
+                        <li><i class="fa-solid fa-check"></i> 25,000+ Live Channels Worldwide</li>
+                        <li><i class="fa-solid fa-check"></i> 120,000+ Movies & TV Shows</li>
                         <li><i class="fa-solid fa-check"></i> Premium PPV Events Included</li>
                         <li><i class="fa-solid fa-check"></i> Instant VOD Access</li>
                         <li><i class="fa-solid fa-check"></i> Smart EPG & Catch-Up TV</li>
-                        <li><i class="fa-solid fa-check"></i> 24/7 Support (WhatsApp)</li>
+                        <li><i class="fa-solid fa-check"></i> 24/7 Premium Support</li>
                         <li><i class="fa-solid fa-check"></i> Multi-Device Compatibility</li>
                     </ul>
                     <a href="javascript:void(0);" onclick="openModal('https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%201%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86.')" class="btn btn-outline">Select Plan</a>
@@ -505,12 +508,12 @@
                     <h2 style="font-size:2.2rem; margin:10px 0;">35 BGN</h2>
                     <ul class="price-list">
                         <li><i class="fa-solid fa-check"></i> 4K Ultra HD Streaming Quality</li>
-                        <li><i class="fa-solid fa-check"></i> +25,000 Live Channels Worldwide</li>
-                        <li><i class="fa-solid fa-check"></i> +120,000 Movies & TV Shows</li>
+                        <li><i class="fa-solid fa-check"></i> 25,000+ Live Channels Worldwide</li>
+                        <li><i class="fa-solid fa-check"></i> 120,000+ Movies & TV Shows</li>
                         <li><i class="fa-solid fa-check"></i> Premium PPV Events Included</li>
                         <li><i class="fa-solid fa-check"></i> Instant VOD Access</li>
                         <li><i class="fa-solid fa-check"></i> Smart EPG & Catch-Up TV</li>
-                        <li><i class="fa-solid fa-check"></i> 24/7 Support (WhatsApp)</li>
+                        <li><i class="fa-solid fa-check"></i> 24/7 Premium Support</li>
                         <li><i class="fa-solid fa-check"></i> Save 20%</li>
                     </ul>
                     <a href="javascript:void(0);" onclick="openModal('https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%203%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86%D0%B0.')" class="btn btn-outline">Select Plan</a>
@@ -523,12 +526,12 @@
                     <h2 style="font-size:2.2rem; margin:10px 0;">59 BGN</h2>
                     <ul class="price-list">
                         <li><i class="fa-solid fa-check"></i> 4K Ultra HD Streaming Quality</li>
-                        <li><i class="fa-solid fa-check"></i> +25,000 Live Channels Worldwide</li>
-                        <li><i class="fa-solid fa-check"></i> +120,000 Movies & TV Shows</li>
-                        <li><i class="fa-solid fa-check"></i> Anti-Freeze Server Technology</li>
+                        <li><i class="fa-solid fa-check"></i> 25,000+ Live Channels Worldwide</li>
+                        <li><i class="fa-solid fa-check"></i> 120,000+ Movies & TV Shows</li>
                         <li><i class="fa-solid fa-check"></i> Premium PPV Events Included</li>
                         <li><i class="fa-solid fa-check"></i> Instant VOD Access</li>
-                        <li><i class="fa-solid fa-check"></i> Priority Setup Help</li>
+                        <li><i class="fa-solid fa-check"></i> Smart EPG & Catch-Up TV</li>
+                        <li><i class="fa-solid fa-check"></i> 24/7 Premium Support</li>
                         <li><i class="fa-solid fa-check"></i> Save 35%</li>
                     </ul>
                     <a href="javascript:void(0);" onclick="openModal('https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%206%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86%D0%B0.')" class="btn btn-outline">Select Plan</a>
@@ -542,10 +545,10 @@
                     <h2 style="font-size:2.2rem; margin:10px 0;">99 BGN</h2>
                     <ul class="price-list">
                         <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> 4K Ultra HD Streaming Quality</li>
-                        <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> +25,000 Live Channels Worldwide</li>
-                        <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> +120,000 Movies & TV Shows</li>
-                        <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Premium Cloud Network Stability</li>
+                        <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> 25,000+ Live Channels Worldwide</li>
+                        <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> 120,000+ Movies & TV Shows</li>
                         <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Premium PPV Events Included</li>
+                        <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Instant VOD Access</li>
                         <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Smart EPG & Catch-Up TV</li>
                         <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> VIP 24/7 Support</li>
                         <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Maximum Savings (45%)</li>
