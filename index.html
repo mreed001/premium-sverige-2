@@ -18,10 +18,11 @@
             --bg-card: #141414;
             --text-main: #f8f9fa;
             --text-muted: #a1a1aa;
-            /* Updated gradient to match your Neon Logo (Cyan to Purple) */
+            /* Neon Gradient matching your logo */
             --primary-gradient: linear-gradient(135deg, #38bdf8, #a855f7);
             --primary-color: #a855f7;
-            --accent-green: #84cc16; 
+            /* Changed accent to Cyan instead of green */
+            --accent-green: #38bdf8; 
             --border-color: #27272a;
         }
 
@@ -59,7 +60,7 @@
 
         /* --- Header & Branding --- */
         header {
-            padding: 20px 5%;
+            padding: 15px 5%;
             display: flex;
             align-items: center;
             border-bottom: 1px solid var(--border-color);
@@ -81,9 +82,9 @@
         .brand-logo img {
             height: 40px;
             width: 40px;
-            border-radius: 8px; /* Optional: if you want slight rounding on the image itself */
+            border-radius: 8px;
+            object-fit: cover;
         }
-        /* ----------------------- */
 
         .btn {
             display: inline-block; width: 100%; padding: 15px 20px; border-radius: 8px;
@@ -135,7 +136,7 @@
         .stat-number { font-size: 2.2rem; font-weight: 700; color: var(--accent-green); margin-bottom: 5px; }
         .stat-text { color: #fff; font-size: 1rem; font-weight: 600; }
 
-        /* Modified Swipe Container for Grid view on mobile */
+        /* Features Grid */
         .swipe-container {
             display: grid; grid-template-columns: 1fr; gap: 15px; padding-bottom: 10px;
         }
@@ -144,7 +145,7 @@
         .grid-2 { display: grid; grid-template-columns: 1fr; gap: 20px; }
         @media(min-width: 768px) {
             .grid-2 { grid-template-columns: repeat(2, 1fr); }
-            .swipe-container { grid-template-columns: repeat(4, 1fr); } /* Desktop 4 columns */
+            .swipe-container { grid-template-columns: repeat(4, 1fr); } 
         }
 
         .card {
@@ -160,23 +161,35 @@
         /* --- Steps Section --- */
         .steps-wrapper { margin-top: 40px; display: grid; grid-template-columns: 1fr; gap: 20px; }
         @media(min-width: 768px) { .steps-wrapper { grid-template-columns: repeat(3, 1fr); } }
-        .step-card { text-align: center; padding: 20px; }
+        .step-card { text-align: center; padding: 20px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-color); }
         .step-number { 
-            width: 60px; height: 60px; border-radius: 50%; background: var(--bg-card); 
+            width: 60px; height: 60px; border-radius: 50%; background: var(--bg-dark); 
             border: 2px solid var(--primary-color); color: #fff; font-size: 1.5rem; font-weight: bold;
             display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto;
             box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
         }
-        /* ------------------- */
 
-        .pricing-card { position: relative; display: flex; flex-direction: column; }
+        /* --- Pricing Horizontal Scroll (Smooth, No Snap) --- */
+        .pricing-scroll-container {
+            display: flex; gap: 15px; overflow-x: auto; padding-bottom: 25px; margin-top: 25px;
+            -ms-overflow-style: none; scrollbar-width: none;
+        }
+        .pricing-scroll-container::-webkit-scrollbar { display: none; }
+        .pricing-scroll-item { min-width: 85%; flex: 0 0 auto; }
+        
+        @media(min-width: 768px) {
+            .pricing-scroll-container { display: grid; grid-template-columns: repeat(4, 1fr); overflow: visible; }
+            .pricing-scroll-item { min-width: auto; }
+        }
+
+        .pricing-card { position: relative; display: flex; flex-direction: column; background: var(--bg-card); padding: 30px 20px; border-radius: 12px; border: 1px solid var(--border-color); height: 100%;}
         .badge {
             position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
             background: var(--primary-gradient); padding: 5px 15px; border-radius: 20px;
             font-size: 0.8rem; font-weight: bold; white-space: nowrap; text-transform: uppercase;
         }
         .price-list { margin-bottom: 30px; flex-grow: 1; }
-        .price-list li { margin-bottom: 10px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; }
+        .price-list li { margin-bottom: 12px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; }
         .price-list li i { color: #10b981; margin-top: 4px; font-size: 0.85rem;}
 
         /* --- Reviews Section --- */
@@ -189,7 +202,6 @@
         .review-stars { color: #f59e0b; font-size: 0.9rem; margin-top: 3px;}
         .review-text { font-size: 0.95rem; font-style: italic; color: #d4d4d8; line-height: 1.6;}
         .verified-badge { color: #10b981; font-size: 0.75rem; font-weight: 600; display: flex; align-items: center; gap: 5px; margin-top: 5px;}
-        /* ----------------------- */
 
         details.faq-item {
             background: var(--bg-card); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 15px; cursor: pointer; transition: all 0.3s;
@@ -203,7 +215,6 @@
 
         .devices-section { text-align: center; padding: 60px 15px; background-color: #0a0a0a; border-bottom: 1px solid #27272a; margin-bottom: 40px;}
         .devices-title { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 30px; }
-        .devices-title span { color: var(--accent-green); } 
         .devices-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
         
         @media(min-width: 768px) { .devices-grid { grid-template-columns: repeat(4, 1fr); gap: 15px; } }
@@ -287,7 +298,7 @@
 
     <header>
         <div class="brand-logo">
-            <img src="https://hm-digital.xyz/IMG_5346.JPG.jpeg" alt="HM-Digital Logo">
+            <img src="./IMG_5346.JPG.jpeg" alt="HM-Digital Logo">
             HM-Digital
         </div>
     </header>
@@ -343,7 +354,7 @@
     </div>
 
     <div class="devices-section">
-        <div class="devices-title">Supported <span>Devices</span></div>
+        <div class="devices-title">Supported <span class="gradient-text">Devices</span></div>
         <div class="devices-grid">
             <div class="device-badge badge-android">
                 <i class="fa-brands fa-android"></i>
@@ -408,19 +419,59 @@
         </div>
     </section>
 
+    <section class="container" style="background: var(--bg-card); padding: 60px 5%; border-radius: 15px; border: 1px solid var(--border-color);">
+        <h2 class="gradient-text text-center mb-4">A World of Content in Your Hands</h2>
+        <div class="grid-2 mt-4">
+            <div style="display: flex; gap: 15px;">
+                <i class="fa-solid fa-trophy" style="color:#3b82f6; font-size: 2rem;"></i>
+                <div>
+                    <h3>Live Sports Pass</h3>
+                    <p>Exclusive access to major football leagues, NBA, UFC, and racing events.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 15px;">
+                <i class="fa-solid fa-globe" style="color:#8b5cf6; font-size: 2rem;"></i>
+                <div>
+                    <h3>Global Networks</h3>
+                    <p>Premium national and international broadcasting, including full Bulgarian coverage.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 15px;">
+                <i class="fa-solid fa-film" style="color:#ec4899; font-size: 2rem;"></i>
+                <div>
+                    <h3>Cinematic Releases</h3>
+                    <p>Stream the newest blockbuster movies and trending series in stunning 4K.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 15px;">
+                <i class="fa-solid fa-gamepad" style="color:#f59e0b; font-size: 2rem;"></i>
+                <div>
+                    <h3>Family & Knowledge</h3>
+                    <p>A dedicated safe space for kids' shows and high-end nature documentaries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="container mt-5">
-        <h2 class="text-center">3 Стъпки до перфектната телевизия</h2> <p class="text-center">Бърза инсталация за по-малко от 5 минути.</p> <div class="steps-wrapper">
+        <h2 class="text-center">3 Steps to Ultimate Entertainment</h2>
+        <p class="text-center mb-4">Fast setup in under 5 minutes.</p>
+        
+        <div class="steps-wrapper">
             <div class="step-card">
                 <div class="step-number">1</div>
-                <h3>Изберете план</h3> <p>Разгледайте нашите абонаменти по-долу и изберете този, който ви подхожда най-добре.</p>
+                <h3>Choose Your Plan</h3>
+                <p style="font-size: 0.95rem;">Select from our 1, 3, 6, or 12-month plans with +25,000 live channels in crystal-clear 4K streaming.</p>
             </div>
             <div class="step-card">
                 <div class="step-number">2</div>
-                <h3>Свържете се с нас</h3> <p>Кликнете върху бутона, за да ни изпратите бързо съобщение в WhatsApp за активиране.</p>
+                <h3>Contact Us</h3>
+                <p style="font-size: 0.95rem;">Click the button to send us a quick WhatsApp message to request your activation.</p>
             </div>
             <div class="step-card">
                 <div class="step-number">3</div>
-                <h3>Приятно гледане!</h3> <p>Получете вашите данни за достъп веднага и се насладете на любимите си предавания.</p>
+                <h3>Start Watching!</h3>
+                <p style="font-size: 0.95rem;">Get your access details immediately and dive into endless entertainment on all your devices.</p>
             </div>
         </div>
     </section>
@@ -429,64 +480,85 @@
         <h2 class="gradient-text text-center">Select Your Subscription</h2>
         <p class="text-center mb-4">Local pricing in BGN. Instant digital delivery via WhatsApp.</p>
         
-        <div class="swipe-container mt-4" style="padding-top: 15px;">
-            <div class="swipe-item card pricing-card">
-                <h3 style="color:var(--text-muted);">1 Month</h3>
-                <h2 style="font-size:2.2rem; margin:10px 0;">15 BGN</h2>
-                <ul class="price-list">
-                    <li><i class="fa-solid fa-check"></i> +25,000 Live Channels</li>
-                    <li><i class="fa-solid fa-check"></i> Full VOD Access (Movies/Series)</li>
-                    <li><i class="fa-solid fa-check"></i> Standard HD Quality</li>
-                    <li><i class="fa-solid fa-check"></i> Smart EPG Included</li>
-                    <li><i class="fa-solid fa-check"></i> Standard Support</li>
-                </ul>
-                <a href="javascript:void(0);" onclick="openModal('https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%201%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86.')" class="btn btn-outline">Select Plan</a>
+        <div class="pricing-scroll-container">
+            <div class="pricing-scroll-item">
+                <div class="pricing-card">
+                    <h3 style="color:var(--text-muted);">1 Month</h3>
+                    <h2 style="font-size:2.2rem; margin:10px 0;">15 BGN</h2>
+                    <ul class="price-list">
+                        <li><i class="fa-solid fa-check"></i> 4K Ultra HD Streaming Quality</li>
+                        <li><i class="fa-solid fa-check"></i> +25,000 Live Channels Worldwide</li>
+                        <li><i class="fa-solid fa-check"></i> +120,000 Movies & TV Shows</li>
+                        <li><i class="fa-solid fa-check"></i> Premium PPV Events Included</li>
+                        <li><i class="fa-solid fa-check"></i> Instant VOD Access</li>
+                        <li><i class="fa-solid fa-check"></i> Smart EPG & Catch-Up TV</li>
+                        <li><i class="fa-solid fa-check"></i> 24/7 Support (WhatsApp)</li>
+                        <li><i class="fa-solid fa-check"></i> Multi-Device Compatibility</li>
+                    </ul>
+                    <a href="javascript:void(0);" onclick="openModal('https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%201%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86.')" class="btn btn-outline">Select Plan</a>
+                </div>
             </div>
 
-            <div class="swipe-item card pricing-card">
-                <h3 style="color:var(--text-muted);">3 Months</h3>
-                <h2 style="font-size:2.2rem; margin:10px 0;">35 BGN</h2>
-                <ul class="price-list">
-                    <li><i class="fa-solid fa-check"></i> +25,000 Live Channels</li>
-                    <li><i class="fa-solid fa-check"></i> Full VOD Access (Movies/Series)</li>
-                    <li><i class="fa-solid fa-check"></i> 4K / UHD Streaming Quality</li>
-                    <li><i class="fa-solid fa-check"></i> Premium PPV Events</li>
-                    <li><i class="fa-solid fa-check"></i> Smart EPG & Catch-Up TV</li>
-                </ul>
-                <a href="javascript:void(0);" onclick="openModal('https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%203%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86%D0%B0.')" class="btn btn-outline">Select Plan</a>
+            <div class="pricing-scroll-item">
+                <div class="pricing-card">
+                    <h3 style="color:var(--text-muted);">3 Months</h3>
+                    <h2 style="font-size:2.2rem; margin:10px 0;">35 BGN</h2>
+                    <ul class="price-list">
+                        <li><i class="fa-solid fa-check"></i> 4K Ultra HD Streaming Quality</li>
+                        <li><i class="fa-solid fa-check"></i> +25,000 Live Channels Worldwide</li>
+                        <li><i class="fa-solid fa-check"></i> +120,000 Movies & TV Shows</li>
+                        <li><i class="fa-solid fa-check"></i> Premium PPV Events Included</li>
+                        <li><i class="fa-solid fa-check"></i> Instant VOD Access</li>
+                        <li><i class="fa-solid fa-check"></i> Smart EPG & Catch-Up TV</li>
+                        <li><i class="fa-solid fa-check"></i> 24/7 Support (WhatsApp)</li>
+                        <li><i class="fa-solid fa-check"></i> Save 20%</li>
+                    </ul>
+                    <a href="javascript:void(0);" onclick="openModal('https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%203%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86%D0%B0.')" class="btn btn-outline">Select Plan</a>
+                </div>
             </div>
 
-            <div class="swipe-item card pricing-card">
-                <h3 style="color:var(--text-muted);">6 Months</h3>
-                <h2 style="font-size:2.2rem; margin:10px 0;">59 BGN</h2>
-                <ul class="price-list">
-                    <li><i class="fa-solid fa-check"></i> Everything Unlocked</li>
-                    <li><i class="fa-solid fa-check"></i> 4K / UHD Streaming Quality</li>
-                    <li><i class="fa-solid fa-check"></i> Anti-Freeze Server Technology</li>
-                    <li><i class="fa-solid fa-check"></i> Premium PPV Events</li>
-                    <li><i class="fa-solid fa-check"></i> Priority Setup Help</li>
-                </ul>
-                <a href="javascript:void(0);" onclick="openModal('https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%206%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86%D0%B0.')" class="btn btn-outline">Select Plan</a>
+            <div class="pricing-scroll-item">
+                <div class="pricing-card">
+                    <h3 style="color:var(--text-muted);">6 Months</h3>
+                    <h2 style="font-size:2.2rem; margin:10px 0;">59 BGN</h2>
+                    <ul class="price-list">
+                        <li><i class="fa-solid fa-check"></i> 4K Ultra HD Streaming Quality</li>
+                        <li><i class="fa-solid fa-check"></i> +25,000 Live Channels Worldwide</li>
+                        <li><i class="fa-solid fa-check"></i> +120,000 Movies & TV Shows</li>
+                        <li><i class="fa-solid fa-check"></i> Anti-Freeze Server Technology</li>
+                        <li><i class="fa-solid fa-check"></i> Premium PPV Events Included</li>
+                        <li><i class="fa-solid fa-check"></i> Instant VOD Access</li>
+                        <li><i class="fa-solid fa-check"></i> Priority Setup Help</li>
+                        <li><i class="fa-solid fa-check"></i> Save 35%</li>
+                    </ul>
+                    <a href="javascript:void(0);" onclick="openModal('https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%206%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86%D0%B0.')" class="btn btn-outline">Select Plan</a>
+                </div>
             </div>
 
-            <div class="swipe-item card pricing-card" style="border: 2px solid var(--primary-color); box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);">
-                <div class="badge"><i class="fa-solid fa-star"></i> MOST POPULAR</div>
-                <h3 style="color:var(--text-muted);">12 Months</h3>
-                <h2 style="font-size:2.2rem; margin:10px 0;">99 BGN</h2>
-                <ul class="price-list">
-                    <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Everything Unlocked</li>
-                    <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Premium 4K Stability</li>
-                    <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Premium Cloud Network</li>
-                    <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> All PPV & Live Sports</li>
-                    <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> VIP 24/7 Support</li>
-                </ul>
-                <a href="javascript:void(0);" onclick="openModal('https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%BF%D1%80%D0%B5%D0%BC%D0%B8%D1%83%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%2012%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86%D0%B0.')" class="btn btn-primary">Select Plan</a>
+            <div class="pricing-scroll-item">
+                <div class="pricing-card" style="border: 2px solid var(--primary-color); box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);">
+                    <div class="badge"><i class="fa-solid fa-star"></i> MOST POPULAR</div>
+                    <h3 style="color:var(--text-muted);">12 Months</h3>
+                    <h2 style="font-size:2.2rem; margin:10px 0;">99 BGN</h2>
+                    <ul class="price-list">
+                        <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> 4K Ultra HD Streaming Quality</li>
+                        <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> +25,000 Live Channels Worldwide</li>
+                        <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> +120,000 Movies & TV Shows</li>
+                        <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Premium Cloud Network Stability</li>
+                        <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Premium PPV Events Included</li>
+                        <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Smart EPG & Catch-Up TV</li>
+                        <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> VIP 24/7 Support</li>
+                        <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Maximum Savings (45%)</li>
+                    </ul>
+                    <a href="javascript:void(0);" onclick="openModal('https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%BF%D1%80%D0%B5%D0%BC%D0%B8%D1%83%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%2012%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86%D0%B0.')" class="btn btn-primary">Select Plan</a>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="reviews-section">
-        <h2 class="text-center">Какво казват нашите клиенти</h2> <p class="text-center" style="margin-bottom: 10px;">Над 7,000 доволни потребители ни се доверяват.</p>
+        <h2 class="text-center">Какво казват нашите клиенти</h2> 
+        <p class="text-center" style="margin-bottom: 10px;">Над 7,000 доволни потребители ни се доверяват.</p>
         
         <div class="reviews-grid">
             <div class="review-card">
