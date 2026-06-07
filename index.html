@@ -7,7 +7,7 @@
     
     <meta name="description" content="Optimize your Smart TV. Enjoy limitless live sports, series, and cinematic releases directly on your devices. Stable and secure network.">
     
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%233b82f6;stop-opacity:1' /><stop offset='100%' style='stop-color:%238b5cf6;stop-opacity:1' /></linearGradient></defs><circle cx='50' cy='50' r='50' fill='%23141414' stroke='url(%23grad)' stroke-width='4'/><path d='M40,30 L40,70 L70,50 Z' fill='url(%23grad)'/></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%2338bdf8;stop-opacity:1' /><stop offset='100%' style='stop-color:%23a855f7;stop-opacity:1' /></linearGradient></defs><rect width='100' height='100' rx='20' fill='%23141414'/><path d='M35,25 L35,75 L75,50 Z' fill='none' stroke='url(%23grad)' stroke-width='8' stroke-linejoin='round'/></svg>">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -18,8 +18,9 @@
             --bg-card: #141414;
             --text-main: #f8f9fa;
             --text-muted: #a1a1aa;
-            --primary-gradient: linear-gradient(135deg, #2563eb, #8b5cf6);
-            --primary-color: #3b82f6;
+            /* Updated gradient to match your Neon Logo (Cyan to Purple) */
+            --primary-gradient: linear-gradient(135deg, #38bdf8, #a855f7);
+            --primary-color: #a855f7;
             --accent-green: #84cc16; 
             --border-color: #27272a;
         }
@@ -33,6 +34,8 @@
         .text-center { text-align: center; }
         .mb-2 { margin-bottom: 10px; }
         .mb-4 { margin-bottom: 20px; }
+        .mt-4 { margin-top: 20px; }
+        .mt-5 { margin-top: 40px; }
         
         h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 20px; font-weight: 700; }
         h2 { font-size: 2rem; margin-bottom: 15px; color: #fff; }
@@ -45,39 +48,67 @@
         }
 
         .top-banner {
-            background: rgba(59, 130, 246, 0.1);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
-            color: #93c5fd;
+            background: rgba(168, 85, 247, 0.1);
+            border-bottom: 1px solid rgba(168, 85, 247, 0.3);
+            color: #d8b4fe;
             text-align: center;
             padding: 10px;
             font-size: 0.9rem;
             font-weight: 600;
         }
 
+        /* --- Header & Branding --- */
+        header {
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+        .brand-logo img {
+            height: 40px;
+            width: 40px;
+            border-radius: 8px; /* Optional: if you want slight rounding on the image itself */
+        }
+        /* ----------------------- */
+
         .btn {
             display: inline-block; width: 100%; padding: 15px 20px; border-radius: 8px;
             font-weight: 600; text-align: center; cursor: pointer; transition: all 0.3s ease;
             border: none; font-size: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        .btn-primary { background: var(--primary-gradient); color: #fff; box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
+        .btn-primary { background: var(--primary-gradient); color: #fff; box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(168, 85, 247, 0.6); }
         .btn-outline { background: #1a1a1a; color: #fff; border: 1px solid #3f3f46; }
         .btn-outline:hover { background: #27272a; }
 
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(59, 130, 246, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(168, 85, 247, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0); }
         }
         .btn-pulse { animation: pulse 2s infinite; }
 
         .hero {
-            position: relative; padding: 100px 0; min-height: 80vh; display: flex; align-items: center;
+            position: relative; padding: 80px 0; min-height: 75vh; display: flex; align-items: center;
             background: url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
         }
         .hero::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to right, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.6) 100%); z-index: 1;
+            background: linear-gradient(to right, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.7) 100%); z-index: 1;
         }
         .hero-content { position: relative; z-index: 2; max-width: 650px; }
         .hero-buttons { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
@@ -122,9 +153,21 @@
         }
         .card:hover { border-color: var(--primary-color); }
         .icon-box {
-            width: 50px; height: 50px; background: rgba(59, 130, 246, 0.1); border-radius: 50%;
+            width: 50px; height: 50px; background: rgba(168, 85, 247, 0.1); border-radius: 50%;
             display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--primary-color); font-size: 1.5rem;
         }
+
+        /* --- Steps Section --- */
+        .steps-wrapper { margin-top: 40px; display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media(min-width: 768px) { .steps-wrapper { grid-template-columns: repeat(3, 1fr); } }
+        .step-card { text-align: center; padding: 20px; }
+        .step-number { 
+            width: 60px; height: 60px; border-radius: 50%; background: var(--bg-card); 
+            border: 2px solid var(--primary-color); color: #fff; font-size: 1.5rem; font-weight: bold;
+            display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+        }
+        /* ------------------- */
 
         .pricing-card { position: relative; display: flex; flex-direction: column; }
         .badge {
@@ -133,8 +176,20 @@
             font-size: 0.8rem; font-weight: bold; white-space: nowrap; text-transform: uppercase;
         }
         .price-list { margin-bottom: 30px; flex-grow: 1; }
-        .price-list li { margin-bottom: 12px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; }
-        .price-list li i { color: #10b981; margin-top: 4px; }
+        .price-list li { margin-bottom: 10px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; }
+        .price-list li i { color: #10b981; margin-top: 4px; font-size: 0.85rem;}
+
+        /* --- Reviews Section --- */
+        .reviews-section { background: var(--bg-card); padding: 60px 15px; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); margin-top: 60px;}
+        .reviews-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1100px; margin: 30px auto 0 auto;}
+        @media(min-width: 768px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
+        .review-card { background: var(--bg-dark); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color); }
+        .review-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .review-avatar { width: 50px; height: 50px; border-radius: 50%; background: #27272a; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; font-size: 1.2rem;}
+        .review-stars { color: #f59e0b; font-size: 0.9rem; margin-top: 3px;}
+        .review-text { font-size: 0.95rem; font-style: italic; color: #d4d4d8; line-height: 1.6;}
+        .verified-badge { color: #10b981; font-size: 0.75rem; font-weight: 600; display: flex; align-items: center; gap: 5px; margin-top: 5px;}
+        /* ----------------------- */
 
         details.faq-item {
             background: var(--bg-card); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 15px; cursor: pointer; transition: all 0.3s;
@@ -230,6 +285,13 @@
         ⚡ Instant Digital Delivery — Connect your devices in under 5 minutes!
     </div>
 
+    <header>
+        <div class="brand-logo">
+            <img src="https://hm-digital.xyz/IMG_5346.JPG.jpeg" alt="HM-Digital Logo">
+            HM-Digital
+        </div>
+    </header>
+
     <section class="hero">
         <div class="container hero-content">
             <h1>Upgrade Your <span class="gradient-text">Screen Time</span></h1>
@@ -322,7 +384,7 @@
         <h2 class="gradient-text text-center">Engineered for Flawless Streaming</h2>
         <p class="text-center mb-4">No buffering, no complex setups. Just pure entertainment.</p>
         
-        <div class="swipe-container desktop-grid mt-4">
+        <div class="swipe-container mt-4">
             <div class="swipe-item card">
                 <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
                 <h3>Zero Delay Tech</h3>
@@ -346,52 +408,36 @@
         </div>
     </section>
 
-    <section class="container" style="background: var(--bg-card); padding: 60px 5%; border-radius: 15px; border: 1px solid var(--border-color);">
-        <h2 class="gradient-text text-center mb-4">A World of Content in Your Hands</h2>
-        <div class="grid-2 mt-4">
-            <div style="display: flex; gap: 15px;">
-                <i class="fa-solid fa-trophy" style="color:#3b82f6; font-size: 2rem;"></i>
-                <div>
-                    <h3>Live Sports Pass</h3>
-                    <p>Exclusive access to major football leagues, NBA, UFC, and racing events.</p>
-                </div>
+    <section class="container mt-5">
+        <h2 class="text-center">3 Стъпки до перфектната телевизия</h2> <p class="text-center">Бърза инсталация за по-малко от 5 минути.</p> <div class="steps-wrapper">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Изберете план</h3> <p>Разгледайте нашите абонаменти по-долу и изберете този, който ви подхожда най-добре.</p>
             </div>
-            <div style="display: flex; gap: 15px;">
-                <i class="fa-solid fa-globe" style="color:#8b5cf6; font-size: 2rem;"></i>
-                <div>
-                    <h3>Global Networks</h3>
-                    <p>Premium national and international broadcasting, including full Bulgarian coverage.</p>
-                </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Свържете се с нас</h3> <p>Кликнете върху бутона, за да ни изпратите бързо съобщение в WhatsApp за активиране.</p>
             </div>
-            <div style="display: flex; gap: 15px;">
-                <i class="fa-solid fa-film" style="color:#ec4899; font-size: 2rem;"></i>
-                <div>
-                    <h3>Cinematic Releases</h3>
-                    <p>Stream the newest blockbuster movies and trending series in stunning 4K.</p>
-                </div>
-            </div>
-            <div style="display: flex; gap: 15px;">
-                <i class="fa-solid fa-gamepad" style="color:#f59e0b; font-size: 2rem;"></i>
-                <div>
-                    <h3>Family & Knowledge</h3>
-                    <p>A dedicated safe space for kids' shows and high-end nature documentaries.</p>
-                </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Приятно гледане!</h3> <p>Получете вашите данни за достъп веднага и се насладете на любимите си предавания.</p>
             </div>
         </div>
     </section>
 
-    <section class="container" id="pricing">
+    <section class="container" id="pricing" style="margin-top: 30px;">
         <h2 class="gradient-text text-center">Select Your Subscription</h2>
         <p class="text-center mb-4">Local pricing in BGN. Instant digital delivery via WhatsApp.</p>
         
-        <div class="swipe-container desktop-grid mt-4" style="padding-top: 15px;">
+        <div class="swipe-container mt-4" style="padding-top: 15px;">
             <div class="swipe-item card pricing-card">
                 <h3 style="color:var(--text-muted);">1 Month</h3>
                 <h2 style="font-size:2.2rem; margin:10px 0;">15 BGN</h2>
                 <ul class="price-list">
-                    <li><i class="fa-solid fa-check"></i> Premium Live Events</li>
-                    <li><i class="fa-solid fa-check"></i> Full On-Demand Access</li>
-                    <li><i class="fa-solid fa-check"></i> High Definition Quality</li>
+                    <li><i class="fa-solid fa-check"></i> +25,000 Live Channels</li>
+                    <li><i class="fa-solid fa-check"></i> Full VOD Access (Movies/Series)</li>
+                    <li><i class="fa-solid fa-check"></i> Standard HD Quality</li>
+                    <li><i class="fa-solid fa-check"></i> Smart EPG Included</li>
                     <li><i class="fa-solid fa-check"></i> Standard Support</li>
                 </ul>
                 <a href="javascript:void(0);" onclick="openModal('https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%201%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86.')" class="btn btn-outline">Select Plan</a>
@@ -401,11 +447,11 @@
                 <h3 style="color:var(--text-muted);">3 Months</h3>
                 <h2 style="font-size:2.2rem; margin:10px 0;">35 BGN</h2>
                 <ul class="price-list">
-                    <li><i class="fa-solid fa-check"></i> Premium Live Events</li>
-                    <li><i class="fa-solid fa-check"></i> Full On-Demand Access</li>
-                    <li><i class="fa-solid fa-check"></i> 4K / UHD Quality</li>
-                    <li><i class="fa-solid fa-check"></i> Standard Support</li>
-                    <li><i class="fa-solid fa-check"></i> Value Saver</li>
+                    <li><i class="fa-solid fa-check"></i> +25,000 Live Channels</li>
+                    <li><i class="fa-solid fa-check"></i> Full VOD Access (Movies/Series)</li>
+                    <li><i class="fa-solid fa-check"></i> 4K / UHD Streaming Quality</li>
+                    <li><i class="fa-solid fa-check"></i> Premium PPV Events</li>
+                    <li><i class="fa-solid fa-check"></i> Smart EPG & Catch-Up TV</li>
                 </ul>
                 <a href="javascript:void(0);" onclick="openModal('https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%203%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86%D0%B0.')" class="btn btn-outline">Select Plan</a>
             </div>
@@ -415,31 +461,73 @@
                 <h2 style="font-size:2.2rem; margin:10px 0;">59 BGN</h2>
                 <ul class="price-list">
                     <li><i class="fa-solid fa-check"></i> Everything Unlocked</li>
-                    <li><i class="fa-solid fa-check"></i> 4K / UHD Quality</li>
-                    <li><i class="fa-solid fa-check"></i> Lag-Free Experience</li>
+                    <li><i class="fa-solid fa-check"></i> 4K / UHD Streaming Quality</li>
+                    <li><i class="fa-solid fa-check"></i> Anti-Freeze Server Technology</li>
+                    <li><i class="fa-solid fa-check"></i> Premium PPV Events</li>
                     <li><i class="fa-solid fa-check"></i> Priority Setup Help</li>
-                    <li><i class="fa-solid fa-check"></i> Save 35%</li>
                 </ul>
                 <a href="javascript:void(0);" onclick="openModal('https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%206%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86%D0%B0.')" class="btn btn-outline">Select Plan</a>
             </div>
 
-            <div class="swipe-item card pricing-card" style="border: 2px solid var(--primary-color); box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);">
+            <div class="swipe-item card pricing-card" style="border: 2px solid var(--primary-color); box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);">
                 <div class="badge"><i class="fa-solid fa-star"></i> MOST POPULAR</div>
                 <h3 style="color:var(--text-muted);">12 Months</h3>
                 <h2 style="font-size:2.2rem; margin:10px 0;">99 BGN</h2>
                 <ul class="price-list">
-                    <li><i class="fa-solid fa-check" style="color: #3b82f6;"></i> Everything Unlocked</li>
-                    <li><i class="fa-solid fa-check" style="color: #3b82f6;"></i> Premium 4K Stability</li>
-                    <li><i class="fa-solid fa-check" style="color: #3b82f6;"></i> Premium Cloud Network</li>
-                    <li><i class="fa-solid fa-check" style="color: #3b82f6;"></i> VIP 24/7 Support</li>
-                    <li><i class="fa-solid fa-check" style="color: #3b82f6;"></i> Maximum Savings (45%)</li>
+                    <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Everything Unlocked</li>
+                    <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Premium 4K Stability</li>
+                    <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Premium Cloud Network</li>
+                    <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> All PPV & Live Sports</li>
+                    <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> VIP 24/7 Support</li>
                 </ul>
                 <a href="javascript:void(0);" onclick="openModal('https://api.whatsapp.com/send?phone=46769798271&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5!%20%D0%98%D1%81%D0%BA%D0%B0%D0%BC%20%D0%BF%D1%80%D0%B5%D0%BC%D0%B8%D1%83%D0%BC%20%D0%B4%D0%BE%D1%81%D1%82%D1%8A%D0%BF%20%D0%B7%D0%B0%2012%20%D0%BC%D0%B5%D1%81%D0%B5%D1%86%D0%B0.')" class="btn btn-primary">Select Plan</a>
             </div>
         </div>
     </section>
 
-    <section class="container">
+    <section class="reviews-section">
+        <h2 class="text-center">Какво казват нашите клиенти</h2> <p class="text-center" style="margin-bottom: 10px;">Над 7,000 доволни потребители ни се доверяват.</p>
+        
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">А</div>
+                    <div>
+                        <strong style="color: #fff;">Александър П.</strong>
+                        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified Customer</span>
+                    </div>
+                </div>
+                <p class="review-text">"Изключително качество! Гледам Шампионска лига без никакво прекъсване (Zero Buffering). Поддръжката по WhatsApp е много бърза и любезна."</p>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">М</div>
+                    <div>
+                        <strong style="color: #fff;">Мария К.</strong>
+                        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified Customer</span>
+                    </div>
+                </div>
+                <p class="review-text">"Абонирах се за 12 месеца и не съжалявам. Има абсолютно всички филми и сериали, които търсех. Настройката отне по-малко от 5 минути на моя Smart TV."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">Г</div>
+                    <div>
+                        <strong style="color: #fff;">Георги Д.</strong>
+                        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                        <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified Customer</span>
+                    </div>
+                </div>
+                <p class="review-text">"Най-добрата IPTV услуга, която съм ползвал досега. Каналите зареждат мигновено, а 4K качеството е реално. Препоръчвам горещо!"</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" style="margin-top: 40px;">
         <h2 class="gradient-text text-center mb-4">Frequently Asked Questions</h2>
         <div style="max-width: 800px; margin: 0 auto;">
             <details class="faq-item">
