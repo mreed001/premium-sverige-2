@@ -13,6 +13,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* Smooth scrolling for the whole page */
+        html {
+            scroll-behavior: smooth;
+        }
+
         :root {
             --bg-dark: #0a0a0a;
             --bg-card: #141414;
@@ -73,6 +78,11 @@
             align-items: center;
             gap: 12px;
             font-size: 1.4rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .brand-logo:hover {
+            transform: scale(1.02);
         }
         .brand-logo img {
             height: 40px;
@@ -303,7 +313,7 @@
     </div>
 
     <header>
-        <div class="brand-logo">
+        <div class="brand-logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
             <img src="./IMG_5346.JPG.jpeg" alt="HM-Digital Logo" onerror="this.src='https://via.placeholder.com/40/a855f7/ffffff?text=HM'">
             <span class="brand-text">HM-Digital</span>
         </div>
