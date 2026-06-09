@@ -181,20 +181,60 @@
             box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
         }
 
+        /* --- Swipe Hint Animation (Mobile Only) --- */
+        @keyframes swipe-bounce {
+            0%, 100% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+        }
+        .swipe-hint-wrapper {
+            text-align: center;
+            display: block;
+            margin-bottom: 15px;
+        }
+        .swipe-hint {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            padding: 8px 20px;
+            border-radius: 30px;
+            color: #d8b4fe;
+            font-size: 0.9rem;
+            font-weight: 600;
+            animation: swipe-bounce 1.5s ease-in-out infinite;
+        }
+        @media(min-width: 768px) {
+            .swipe-hint-wrapper { display: none; }
+        }
+
         /* --- Pricing Horizontal Scroll --- */
         .pricing-scroll-container {
             display: flex; gap: 15px; overflow-x: auto; 
             padding-top: 20px; 
             padding-bottom: 25px; 
-            margin-top: 10px;
             -ms-overflow-style: none; scrollbar-width: none;
+            /* BONUS: Magnetic Scroll Snapping */
+            scroll-snap-type: x mandatory;
+            scroll-padding: 0 5%;
         }
         .pricing-scroll-container::-webkit-scrollbar { display: none; }
-        .pricing-scroll-item { min-width: 85%; flex: 0 0 auto; }
+        
+        .pricing-scroll-item { 
+            min-width: 85%; 
+            flex: 0 0 auto; 
+            /* BONUS: Centers the card perfectly when swiping */
+            scroll-snap-align: center;
+        }
         
         @media(min-width: 768px) {
-            .pricing-scroll-container { display: grid; grid-template-columns: repeat(4, 1fr); overflow: visible; padding-top: 20px; }
-            .pricing-scroll-item { min-width: auto; }
+            .pricing-scroll-container { 
+                display: grid; grid-template-columns: repeat(4, 1fr); 
+                overflow: visible; padding-top: 20px; 
+                scroll-snap-type: none; /* Disable snapping on PC */
+            }
+            .pricing-scroll-item { min-width: auto; scroll-snap-align: none; }
         }
 
         .pricing-card { position: relative; display: flex; flex-direction: column; background: var(--bg-card); padding: 30px 20px; border-radius: 12px; border: 1px solid var(--border-color); height: 100%;}
@@ -496,6 +536,12 @@
         <h2 class="gradient-text text-center">Изберете своя абонамент</h2>
         <p class="text-center mb-4">Сигурни плащания в Евро (€). Незабавна дигитална доставка по WhatsApp.</p>
         
+        <div class="swipe-hint-wrapper">
+            <div class="swipe-hint">
+                <i class="fa-solid fa-hand-point-left"></i> Плъзнете за още планове <i class="fa-solid fa-hand-point-right"></i>
+            </div>
+        </div>
+
         <div class="pricing-scroll-container">
             <div class="pricing-scroll-item">
                 <div class="pricing-card">
