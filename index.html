@@ -662,7 +662,7 @@
             <i class="fa-brands fa-whatsapp wa-icon-modal" style="color: #25D366;"></i>
             <h3 style="margin-bottom: 10px; color: #fff;">Отличен избор!</h3>
             <p style="margin-bottom: 20px; font-size: 0.95rem; color: #a1a1aa;">Ще бъдете пренасочени към WhatsApp, за да получите своя тестов период и инструкции за активация.</p>
-            <a href="#" id="mobile-wa-link" class="btn-whatsapp" onclick="trackMobileAndGo(event)">
+            <a href="#" id="mobile-wa-link" class="btn-whatsapp" target="_blank" onclick="trackMobileClick()">
                 Продължи към WhatsApp
             </a>
         </div>
@@ -728,7 +728,7 @@
 
             // السيناريو الثاني: الكليان كليكا على شي باكة (InitiateCheckout)
             if (isMobile) {
-                // فالتليفون: كيطلع مودال التحفيز د التليفون
+                // فالتليفون: كيطلع مودال التحفيز د التليفون واللينك كيكون واجد فـ الزر
                 mobileWaLink.href = currentWaLink;
                 mobileModal.style.display = 'flex';
             } else {
@@ -748,12 +748,11 @@
             desktopModal.style.display = 'none';
         }
 
-        // --- الفلتر ديال البيكسل (خدام كيفما تافقنا عليه) ---
+        // --- الفلتر ديال البيكسل ---
 
-        function trackMobileAndGo(event) {
-            event.preventDefault(); // كتمنع البلوكاج ديال التليفون
+        // هادا التصحيح اللخر: المتصفح كيحل اللينك راسو حيت عندو href و target="_blank"، وحنا غير كنسجلو البيكسل
+        function trackMobileClick() {
             fbq('track', currentFbEvent);
-            window.open(currentWaLink, '_blank'); // كتحل الواتساب ديريكت
             closeMobileModal();
         }
 
