@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium TV Setup | Вашето домашно кино</title>
     
-    <meta name="description" content="Оптимизирайте вашия Smart TV. Насладете се на неограничени спортове на живо, сериали и кино премиери директно на вашите устройства. Стабилна и сигурна мрежа.">
+    <meta name="description" content="Оптимизите вашия Smart TV. Насладете се на неограничени спортове на живо, сериали и кино премиери директно на вашите устройства. Стабилна и сигурна мрежа.">
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%2338bdf8;stop-opacity:1' /><stop offset='100%' style='stop-color:%23a855f7;stop-opacity:1' /></linearGradient></defs><rect width='100' height='100' rx='20' fill='%23141414'/><path d='M35,25 L35,75 L75,50 Z' fill='none' stroke='url(%23grad)' stroke-width='8' stroke-linejoin='round'/></svg>">
     
@@ -721,18 +721,29 @@
             <h3 id="desktop-modal-title" style="margin-bottom: 10px; color: #fff;"></h3>
             <p id="desktop-modal-desc" style="margin-bottom: 20px; font-size: 0.95rem; color: #a1a1aa;"></p>
             
-            <div style="background: #1a1a1a; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px dashed #3f3f46; font-size: 1.4rem; font-weight: bold; color: #25D366; letter-spacing: 2px;">
-                +46 76 979 82 71
-            </div>
-            
-            <button onclick="copyWaNumber()" class="btn btn-outline" style="margin-bottom: 15px;">
-                <i class="fa-regular fa-copy"></i> Копирай номера
+            <button id="desktop-main-btn" class="btn btn-primary" onclick="handleDesktopMainClick()">
+                Продължи към WhatsApp
             </button>
-            
-            <p style="font-size: 0.85rem; color: #52525b; margin-bottom: 10px;">Или ако имате WhatsApp на компютъра:</p>
-            <a href="#" id="desktop-wa-link" class="btn-whatsapp" style="padding: 10px; font-size: 1rem;" target="_blank" onclick="trackWaWebClick()">
-                Отвори WhatsApp Web
-            </a>
+
+            <div id="desktop-options-container" style="display: none; margin-top: 15px;">
+                <div style="margin-bottom: 20px; text-align: center;">
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;">Сканирайте кода с телефона си за бърз достъп:</p>
+                    <img id="desktop-qr-img" src="" alt="QR Code" style="background: white; padding: 8px; border-radius: 8px; width: 150px; height: 150px; margin: 0 auto; display: block;">
+                </div>
+
+                <div style="background: #1a1a1a; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px dashed #3f3f46; font-size: 1.4rem; font-weight: bold; color: #25D366; letter-spacing: 2px;">
+                    +46 76 979 82 71
+                </div>
+                
+                <button onclick="copyWaNumber()" class="btn btn-outline" style="margin-bottom: 15px;">
+                    <i class="fa-regular fa-copy"></i> Копирай номера
+                </button>
+                
+                <p style="font-size: 0.85rem; color: #52525b; margin-bottom: 10px;">Или ако имате WhatsApp на компютър:</p>
+                <a href="#" id="desktop-wa-link" class="btn-whatsapp" style="padding: 10px; font-size: 1rem;" target="_blank" onclick="trackWaWebClick()">
+                    Отвори WhatsApp Web
+                </a>
+            </div>
         </div>
     </div>
 
@@ -742,51 +753,65 @@
         const mobileWaLink = document.getElementById('mobile-wa-link');
         const desktopWaLink = document.getElementById('desktop-wa-link');
 
-        // المتغيرات باش نتحكمو فـ المودال د البيسي
         const desktopTitle = document.getElementById('desktop-modal-title');
         const desktopDesc = document.getElementById('desktop-modal-desc');
 
         let currentWaLink = '';
         let currentFbEvent = 'Contact'; 
 
-        // الفانكشن الرئيسية للروتينغ الذكي
         function openSmartWhatsApp(waLink, fbEventName) {
             currentWaLink = waLink;
             currentFbEvent = fbEventName ? fbEventName : 'Contact';
             
             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
             
-            // السيناريو الأول: الكليان كليكا على الزر ديال التساؤл (Contact)
             if (currentFbEvent === 'Contact') {
                 if (isMobile) {
-                    // فالتليفون: كيمشي نيشان
                     fbq('track', 'Contact');
                     window.open(waLink, '_blank');
                 } else {
-                    // فالبيسي: كنطلعو ليه مودال المساعدة
-                    desktopTitle.innerText = "Имате въпроси?"; // "عندك تساؤл؟"
-                    desktopDesc.innerText = "Ние сме тук, за да помогнем! За най-бърз отговор, отворете WhatsApp или копирайте номера:"; // "نحن هنا للمساعدة..."
+                    // Reset Desktop Modal to Step 1
+                    document.getElementById('desktop-main-btn').style.display = 'inline-block';
+                    document.getElementById('desktop-options-container').style.display = 'none';
+
+                    desktopTitle.innerText = "Имате въпроси?"; 
+                    desktopDesc.innerText = "Ние сме тук, за да помогнем! Натиснете бутона по-долу, за да се свържете с поддръжката ни:"; 
                     desktopWaLink.href = currentWaLink;
                     desktopModal.style.display = 'flex';
                 }
                 return; 
             }
 
-            // السيناريو الثاني: الكليان كليكا على شي باكة (InitiateCheckout)
+            // InitiateCheckout Scenario
             if (isMobile) {
-                // فالتليفون: كيطلع مودال التحفيز د التليفون واللينك كيكون واجد فـ الزر
                 mobileWaLink.href = currentWaLink;
                 mobileModal.style.display = 'flex';
             } else {
-                // فالبيسي: كيطلع نفس المودال ولكن بعبارات تحفيزية ديال الباكات
-                desktopTitle.innerText = "Отличен избор!"; // "اختيار ممتاز!"
-                desktopDesc.innerText = "За да получите своя тестов период и инструкции за активация, отворете WhatsApp или копирайте номера:"; // "باش تاخد التست ديالك..."
+                // Reset Desktop Modal to Step 1 (NO pixel fires yet)
+                document.getElementById('desktop-main-btn').style.display = 'inline-block';
+                document.getElementById('desktop-options-container').style.display = 'none';
+
+                desktopTitle.innerText = "Отличен избор!"; 
+                desktopDesc.innerText = "За да получите своя тестов период и инструкции за активация, кликнете на бутона за връзка с нас:"; 
                 desktopWaLink.href = currentWaLink;
                 desktopModal.style.display = 'flex';
             }
         }
 
-        // إغلاق النوافذ
+        // --- The Two-Step Magic Hack ---
+        function handleDesktopMainClick() {
+            // 1. Fire Pixel precisely on intent confirmation
+            fbq('track', currentFbEvent);
+
+            // 2. Generate custom dynamic QR code based on the package selected
+            const qrImg = document.getElementById('desktop-qr-img');
+            qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(currentWaLink);
+
+            // 3. Reveal options smoothly and hide the step 1 button
+            document.getElementById('desktop-main-btn').style.display = 'none';
+            document.getElementById('desktop-options-container').style.display = 'block';
+        }
+
         function closeMobileModal() {
             mobileModal.style.display = 'none';
         }
@@ -794,22 +819,18 @@
             desktopModal.style.display = 'none';
         }
 
-        // --- الفلتر ديال البيكسل ---
-
-        // هادا التصحيح اللخر: المتصفح كيحل اللينك راسو حيت عندو href و target="_blank"، وحنا غير كنسجلو البيكسل
         function trackMobileClick() {
             fbq('track', currentFbEvent);
             closeMobileModal();
         }
 
+        // Removed tracking from secondary choices to completely prevent double-counting
         function copyWaNumber() {
             navigator.clipboard.writeText("+46769798271");
             alert("Номерът е копиран! Можете да го поставите в WhatsApp.");
-            fbq('track', currentFbEvent);
         }
 
         function trackWaWebClick() {
-            fbq('track', currentFbEvent);
             closeDesktopModal();
         }
 
